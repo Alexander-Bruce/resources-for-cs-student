@@ -1,8 +1,0 @@
-11:19:37 INF [API] listening addr=127.0.0.1:49982
-11:19:37 INF [Inbound] Mixed(http+socks) listening addr=[::]:7890
-11:19:37 INF [Config] initial compatible provider name=自动选择
-11:19:37 INF [Config] initial compatible provider name=Proxy
-11:19:38 ERR [Inbound] start failed error=Error creating interface: Access is denied. type=TUN stackType=gvisor inet=198.18.0.1/16
-11:19:38 INF [Config] initial compatible provider name=自动选择
-11:19:38 INF [Config] initial compatible provider name=Proxy
-11:19:38 ERR [Inbound] start failed error=Error creating interface: Access is denied. type=TUN stackType=gvisor inet=198.18.0.1/16
