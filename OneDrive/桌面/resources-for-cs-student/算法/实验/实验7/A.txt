@@ -1,0 +1,23 @@
+#include <iostream>
+#include <set>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int n; // 定义一个整数变量 n，用于存储将要读入的字符串数量
+    cin >> n; // 从标准输入读取字符串的数量
+    cin.ignore(); // 忽略掉输入流中的剩余字符，主要是处理换行符，确保之后的 getline 函数能正确读取字符串
+
+    set<string> strings; // 创建一个 set 容器来存储字符串，set 自动处理元素的唯一性和排序
+
+    for (int i = 0; i < n; ++i) { // 循环 n 次，读取 n 个字符串
+        string s; // 创建一个字符串变量 s 用于存储每次输入的字符串
+        getline(cin, s); // 使用 getline 函数从标准输入读取一整行，存储到字符串 s 中
+        strings.insert(s); // 将字符串 s 插入到 set 中，如果 s 已存在，则不会重复插入
+    }
+
+    cout << strings.size() << endl; // 输出 set 中不同字符串的数量
+
+    return 0; // 程序正常结束，返回 0
+}

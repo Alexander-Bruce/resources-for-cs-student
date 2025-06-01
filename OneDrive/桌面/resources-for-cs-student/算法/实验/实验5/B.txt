@@ -1,0 +1,98 @@
+#include <iostream>
+#include <string>
+#include <unordered_map>
+#include <queue>
+
+using namespace std;
+
+// 哈夫曼树节点结构定义
+struct Node {
+    char data;   // 存储字符
+    int weight;  // 存储字符的频率，即权重
+    Node* left, * right; // 指向左右子树的指针
+
+    // 构造函数
+    Node(char data, int weight) : data(data), weight(weight), left(nullptr), right(nullptr) {}
+};
+
+// 自定义比较器，用于优先队列（最小堆），确保权重最小的节点优先被弹出
+struct Compare {
+    bool operator()(Node* a, Node* b) {
+        return a->weight > b->weight; // 如果a的权重大于b的权重，返回true
+    }
+};
+
+// 函数用于构建哈夫曼树
+Node* buildHuffmanTree(const unordered_map<char, int>& freq) {
+    priority_queue<Node*, vector<Node*>, Compare> pq; // 使用优先队列（最小堆）
+
+    // 遍历字符频率表，创建树节点并添加到优先队列中
+    for (const auto& pair : freq) {
+        pq.push(new Node(pair.first, pair.second));
+    }
+
+    // 构建哈夫曼树
+    while (pq.size() > 1) {
+        Node* left = pq.top(); // 取出权重最小的节点
+        pq.pop();
+        Node* right = pq.top(); // 取出权重次小的节点
+        pq.pop();
+
+        // 创建一个新的内部节点，其权重是两个子节点权重的和
+        Node* parent = new Node('$', left->weight + right->weight);
+        parent->left = left;
+        parent->right = right;
+        pq.push(parent); // 将新节点重新加入优先队列
+    }
+
+    // 返回树的根节点
+    return pq.top();
+}
+
+// 递归函数，用于计算哈夫曼编码的总权重
+int calculateEncodedWeight(Node* root, int depth) {
+    if (!root) return 0;
+
+    if (!root->left && !root->right) {
+        // 如果是叶子节点，则返回其编码长度乘以频率（即权重）
+        return depth * root->weight;
+    }
+
+    // 递归计算左右子树的编码权重
+    return calculateEncodedWeight(root->left, depth + 1) + calculateEncodedWeight(root->right, depth + 1);
+}
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int M;
+        cin >> M; // 读取最大允许的编码权重
+
+        string str;
+        cin >> str;
+
+        // 统计字符频率
+        unordered_map<char, int> freq;
+        for (char ch : str) {
+            freq[ch]++;
+        }
+
+        // 构建哈夫曼树
+        Node* root = buildHuffmanTree(freq);
+
+        // 计算编码后的字符串权重
+        int encodedWeight = calculateEncodedWeight(root, 0);
+
+        // 如果编码权重小于或等于M，输出"yes"，否则输出"no"
+        if (encodedWeight <= M) {
+            cout << "yes" << endl;
+        }
+        else {
+            cout << "no" << endl;
+        }
+    }
+
+    return 0;
+}

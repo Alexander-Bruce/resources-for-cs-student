@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十大古典园林</title>
+    <link rel="stylesheet" href="css\gardenstyle.css" />
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css\navbar.css" />
+    <link rel="stylesheet" href="css\search.css">
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <script src="https://kit.fontawesome.com/224b934ae2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="headline">
+        <h1>十大古典园林</h1>
+    </div>
+
+    <div id="sidebar">
+        <div class="toggle-btn" onclick="showslidebar()">
+        </div>
+
+        <ul>
+            <li></li>
+            <li onclick="showlist();"><a href="javascript:;"> <i class="fa-solid fa-compass"
+                        style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">页面导航</p>
+                    </i></a></li>
+            <li class="list" style="display: none;" onclick="update();showlist();"><a href="#container"
+                    style="text-decoration: none;"><i class="fa-regular fa-circle-dot"
+                        style="margin-top: 10px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 20px;">中国十大古典园林</p>
+                    </i></a></li>
+            <li onclick="showlistword();"><a href="javascript:;"> <i class="fa-solid fa-file-word"
+                        style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">字体</p>
+                    </i></a></li>
+            <li class="listword" style="display: none;" onclick="showlistword();cstyle1();"><a href="javascript:;"
+                    style="text-decoration: none;"><i class="fa-regular fa-circle-dot"
+                        style="margin-top: 10px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 20px;">华文新魏</p>
+                    </i></a></li>
+            <li class="listword" style="display: none;" onclick="showlistword();cstyle2();"><a href="javascript:;"
+                    style="text-decoration: none;"><i class="fa-regular fa-circle-dot"
+                        style="margin-top: 10px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 20px;">经典宋体</p>
+                    </i></a></li>
+            <li class="listword" style="display: none;" onclick="showlistword();cstyle3();"><a href="javascript:;"
+                    style="text-decoration: none;"><i class="fa-regular fa-circle-dot"
+                        style="margin-top: 10px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 20px;">华文行楷</p>
+                    </i></a></li>
+            <li class="listword" style="display: none;" onclick="showlistword();cstyle4();"><a href="javascript:;"
+                    style="text-decoration: none;"><i class="fa-regular fa-circle-dot"
+                        style="margin-top: 10px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 20px;">方正舒体</p>
+                    </i></a></li>
+            <li><a href="index.html"> <i class="fa-solid fa-person" style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">登录</p>
+                    </i></a></li>
+            <li><a href="register.html"> <i class="fa-solid fa-user" style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">注册</p>
+                    </i></a></li>
+        </ul>
+    </div>
+
+
+    <header>
+        <a href="#" class="logo"><img src="images\logo带字母.png" alt=""></a>
+        <ul>
+            <li><a href="Home.html"><i class="fa-solid fa-house fa-beat">首页</i></a></li>
+            <li> <a href="gardenstyle.html"><i class="fa-solid fa-globe">十大园林</i></a> </li>
+            <li><a href="question.html"><i class="fa-solid fa-file-contract">互动答题</i></a></li>
+            <li><a href="photo.html"><i class="fa-solid fa-photo-film">图片</i></a></li>
+            <li><a href="javascript:;"><i class="fa-solid fa-bars" onclick="showslidebar()">导航</i></a></li>
+        </ul>
+
+
+
+    </header>
+
+    <section class="banner"></section>
+
+    <script type="text/javascript">
+        window.addEventListener("scroll", function () {
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+
+    </script>
+
+    <div id="container">
+
+        <aside>
+
+            <ul>
+                <li onclick="showmap();"><a href="javascript:;"><i class="fa-solid fa-map-location-dot"
+                            style="float: left; "></i>
+                        <p>园林地图</p>
+                    </a></li>
+                <li onclick="shownorthgarden();"><a href="javascript:;"><i class="fa-solid fa-arrow-right-long"
+                            style="float: left; " id="northgarden"></i>
+                        <p>北方园林</p>
+                    </a></li>
+                <li class="northlist" style="display: none; " onclick="change(2);hidelist(); "><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>北京颐和园</p>
+                    </a></li>
+                <li class="northlist" style="display: none;" onclick="change(3);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>承德避暑山庄</p>
+                    </a></li>
+                <li class="northlist" style="display: none;" onclick="change(10);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>保定古莲花池</p>
+                    </a></li>
+                <li onclick="showmaingarden();"><a href="javascript:;"><i class="fa-solid fa-arrow-right-long"
+                            style="float: left; " id="maingarden"></i>
+                        <p>江浙园林</p>
+                    </a></li>
+                <li class="mainlist" style="display: none;" onclick="change(1);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>苏州拙政园</p>
+                    </a></li>
+                <li class="mainlist" style="display: none;" onclick="change(4);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>苏州留园</p>
+                    </a></li>
+                <li class="mainlist" style="display: none;" onclick="change(8);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>扬州个园</p>
+                    </a></li>
+                <li class="mainlist" style="display: none;" onclick="change(9);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>扬州何园</p>
+                    </a></li>
+                <li class="mainlist" style="display: none;" onclick="change(6);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>嘉兴绮园</p>
+                    </a></li>
+                <li class="mainlist" style="display: none;" onclick="change(5);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>无锡寄畅园</p>
+                    </a></li>
+                <li onclick="showsouthgarden();"><a href="javascript:;"><i class="fa-solid fa-arrow-right-long"
+                            style="float: left; " id="southgarden"></i>
+                        <p>岭南园林</p>
+                    </a></li>
+                <li class="southlist" style="display: none;" onclick="change(7);hidelist();"><a href="javascript:;"><i
+                            class="fa-regular fa-circle-dot" style="float: left; "></i>
+                        <p>顺德清晖园</p>
+                    </a></li>
+            </ul>
+        </aside>
+
+        <main>
+            <div id="slide2">
+            </div>
+            <script type="text/javascript"
+                src="https://webapi.amap.com/maps?v=2.0&key=4a28f76b0064190fa94a0825e86658cb"></script>
+            <div class="slide1">
+                <h1>苏州拙政园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    中国四大名园之一，江南古典园林典范。始建于明正德初年（16世纪初），四百多年来，拙政园几度分合，或为私人宅园，或做“金屋”藏娇，或是王府治所，留下了许多诱人探寻的遗迹和典故。</p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\苏州拙政园.jpeg" alt="" align="right">
+                <p class="pstyle">拙政园（Humble Administrator’s
+                    Garden），位于江苏省苏州市姑苏区东北街178号。明正德八年（1513年），解官回乡的御史王献臣，以大弘寺基建造宅园，取西晋潘岳《闲居赋》“筑室种树……此亦拙者之为政也”之意题名拙政园。后屡易其主，并几度入官，迭经兴衰分合。1860年至1863年曾属太平天国忠王府。1951年整修。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\苏州拙政园3.jpg" alt="" align="left">
+                <p class="pstyle">
+                    拙政园占地面积78亩（52000平方米），全园分东、中、西三部分。另有住宅部分现为园林博物馆展厅。东部明快开朗，以平冈远山、松林草坪、竹坞曲水为主。中部为拙政园精华所在，池水面积占1/3，以水为主，池广树茂，景色自然，临水布置了形体不一、高低错落的建筑，主次分明。西部水池呈曲尺形，其特点为台馆分峙，回廊起伏，水波倒影，别有情趣，装饰华丽精美，主体建筑为靠近住宅一侧的卅六鸳鸯馆。拙政园的整个环境虽由人做，自然生态的野趣却十分突出，尚保留着明代建园之初的风范，被认为是江南古典园林的代表作和中国园林艺术的珍贵遗产。
+                    1961年，拙政园被中华人民共和国国务院公布为第一批全国重点文物保护单位。1997年12月，作为苏州古典园林典型例证，经联合国教科文组织批准，拙政园与留园、网师园、环秀山庄共同列入《世界遗产名录》。2007年，苏州园林（拙政园、虎丘山、留园）被评为国家AAAAA级景区。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\苏州拙政园3.jpg" alt="" align="right">
+                <p class="pstyle">
+                    拙政园的布局疏密自然，其特点是以水为主，水面广阔，景色平淡天真、疏朗自然。它以池水为中心，楼阁轩榭建在池的周围，其间有漏窗、回廊相连，园内的山石、古木、绿竹、花卉，构成了一幅幽远宁静的画面，代表了明代园林建筑风格。拙政园形成的湖、池、涧等不同的景区，把风景诗、山水画的意境和自然环境的实境再现于园中，富有诗情画意。拙政园的整个环境虽由人做，自然生态的野趣却十分突出，尚保留着明代建园之初的风范，被认为是江南古典园林的代表作和中国园林艺术的珍贵遗产。苏州园林不仅是历史文化的产物，更是中国传统思想文化的表现。从园林中的命名，楹联，雕刻，窗格以及花木寓情等便可一窥其二。它所主载的更多的是各朝各代的历史，思想以及文化背景。
+                </p>
+            </div>
+            <div class="slide1">
+                <h1>颐和园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    颐和园，中国清朝时期皇家园林，前身为清漪园，坐落在北京西郊，距城区15公里，全园占地3.009平方公里（其中颐和园世界文化遗产区面积为2.97平方公里），水面约占四分之三。与圆明园毗邻。它是以昆明湖、万寿山为基址，以杭州西湖为蓝本，汲取江南园林的设计手法而建成的一座大型山水园林，也是保存最完整的一座皇家行宫御苑，被誉为“皇家园林博物馆”。
+                </p>
+                <img src="images\颐和园1.jpg" alt="" align="right">
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    清朝乾隆皇帝继位以前，在北京西郊一带，建起了四座大型皇家园林。乾隆十五年（1750年），乾隆皇帝为孝敬其母崇庆皇太后动用448万两白银在这里改建为清漪园，形成了从现清华园到香山长达二十公里的皇家园林区。咸丰十年（1860年），清漪园被英法联军焚毁。光绪十四年（1888年）重建，改称颐和园，作消夏游乐地。光绪二十六年（1900年），颐和园又遭“八国联军”的破坏，珍宝被劫掠一空。清朝灭亡后，颐和园在军阀混战和国民党统治时期，又遭破坏。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\颐和园3.jpg" alt="" align="left">
+                <p class="pstyle">其全园占地3.009平方公里(其中颐和园世界文化遗产区面积是2.97平方公里)，水面约占四分之三。 [29]
+                    主要由万寿山和昆明湖两部分组成。各种形式的宫殿园林建筑3000余间，大致可分为行政、生活、游览三个部分。
+                    以仁寿殿为中心的行政区，是当年慈禧太后和光绪皇帝坐朝听政，会见外宾的地方。仁寿殿后是三座大型四合院：乐寿堂、玉澜堂和宜芸馆，分别为慈禧、光绪和后妃们居住的地方。宜芸馆东侧的德和园大戏楼是清代三大戏楼之一。
+                    颐和园自万寿山顶的智慧海向下，由佛香阁、德辉殿、排云殿、排云门、云辉玉宇坊，构成了一条层次分明的中轴线。山下是一条长700多米的“长廊”，长廊枋梁上有彩画8000多幅，号称
+                    “世界第一廊”。长廊之前是昆明湖。昆明湖的西堤是仿照西湖的苏堤建造的。
+                    万寿山后山、后湖古木成林，有藏式寺庙，苏州河古买卖街。后湖东端有仿无锡寄畅园而建的谐趣园，小巧玲珑，被称为“园中之园”。</p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\颐和园2.jpg" alt="" align="right" style="width: 200px;height: 150px;">
+                <p class="pstyle">
+                    1961年3月4日，颐和园被公布为第一批全国重点文物保护单位，与同时公布的承德避暑山庄、拙政园、留园并称为中国四大名园，1998年11月被列入《世界遗产名录》。2007年5月8日，颐和园经国家旅游局正式批准为国家5A级旅游景区。
+                    2009年，颐和园入选中国世界纪录协会中国现存最大的皇家园林。</p>
+            </div>
+            <div class="slide1">
+                <h1>承德避暑山庄</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">承德避暑山庄，又名“承德离宫”或“热河行宫”，位于河北省承德市双桥区山庄东路6号。承德避暑山庄清康熙四十二年（1703年）开始大规模修建，
+                    是中国清朝皇帝为了实现安抚、团结中国边疆少数民族，巩固国家统一的政治目的而修建的一座夏宫。</p>
+                <img src="images\承德避暑山庄2.jpg" alt="" align="right">
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    承德避暑山庄占地564万平方米，主要分为宫殿区和苑景区（湖泊区、平原区和山峦区）两部分。承德避暑山庄不同于其它的皇家园林，它继承和发展了中国古典园林“以人为之美入自然，符合自然而又超越自然”的传统造园思想，按照地形地貌特征进行选址和总体设计，完全借助于自然地势，因山就水，顺其自然。它集中国古代造园艺术和建筑艺术之大成，是具有创造力的杰作。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\承德避暑山庄1.jpg" alt="" align="left">
+                <p class="pstyle">
+                    承德避暑山庄整体布局分区明确，景色丰富，与其它园林相比，有其独特的风格。山庄融南北建筑艺术精华，园内建筑规模不大，殿宇和围墙多采用青砖灰瓦、原木本色，淡雅庄重，简朴适度，与京城的故宫，黄瓦红墙，描金彩绘，堂皇耀目呈明显对照。山庄的建筑既具有南方园林的风格、结构和工程做法，又多沿袭北方常用的手法，成为南北建筑艺术完美结合的典范。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\承德避暑山庄3.jpg" alt="" align="right">
+                <p class="pstyle">
+                    避暑山庄及周围寺庙，是中国现存最大的古代帝王范囿和皇家寺庙群。它集中国古代造园艺术和建筑艺术之大成，是具有创造力的杰作。在造园上，它继承和发展了中国古典园林“以人为之美入自然，符合自然而又超越自然”的传统造园思想，总结并创造性地运用了各种造园素材、造园技法，使其成为自然山水园与建筑园林化的杰出代表。在建筑上，它继承、发展、并创造性地运用各种建筑技艺，撷取中国南北名园名寺的精华，仿中有创，表达了“移天缩地在君怀”的建筑主题。在园林与寺庙、单体与组群建筑的具体构建上，避暑山庄及周围寺庙实现了中国古代南北造园和建筑艺术的融合，它囊括了亭台阁寺等中国古代大部分建筑形象。展示了中国古代木架结构建筑的高超技艺，并实现了木架结构与砖石结构、汉式建筑形式与少数民族建筑形式的结合。加之建筑装饰及佛教造像等中国古代最高超技艺的运用，构成了中国古代建筑史上的奇观。1994年12月，承德避暑山庄及其周围寺庙被联合国教科文组织列为世界文化遗产。
+                    2007年，承德避暑山庄被评为国家AAAAA级景区。</p>
+
+
+            </div>
+            <div class="slide1">
+                <h1>苏州留园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    留园，曾名“东园”、“寒碧山庄”，位于江苏省苏州市姑苏区留园路338号，南临留园路，北至半边街，东邻市汽车客运集团有限公司，西为绣花弄，于明万历二十一年（1593年）始建，其后多有荒废易主，1953年，苏州市人民政府决定修复留园，其后不断修缮整治。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\苏州留园2.jpg" alt="" align="right">
+                <p class="pstyle">
+                    留园为中国大型古典私家园林，占地面积23300平方米，代表清代风格，园以建筑艺术著称，厅堂宏敞华丽，庭院富有变化，整个园林采用不规则布局形式，使园林建筑与山、水、石相融合而呈天然之趣。利用云墙和建筑群把园林划分为中、东、北、西四个不同的景区。留园内亭馆楼榭高低参差，曲廊蜿蜒相续有七百米之多，颇有步移景换之妙。建筑物约占园总面积四分之一。建筑结构式样代表清代风格，在不大的范围内造就了众多而各有特性的建筑，处处显示了咫尺山林、小中见大的造园艺术手法。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\苏州留园3.jpg" alt="" align="left">
+                <p class="pstyle">
+                    留园的特长就在于它更注重对空间的利用。留园占地三十余亩，集住宅、祠堂、家庵、园林于一身，该园综合了江南造园艺术，并以建筑结构见长，善于运用大小、曲直、明暗、高低、收放等视觉原理，吸取四周景色，形成一组组层次丰富，错落相连的，有节奏、有色彩、有对比的空间体系。留园的建筑在苏州园林中，不但数量多，分布也较为密集，其布局之合理，空间处理之巧妙，皆为诸园所莫及。留园整体讲究亭台轩榭的布局，讲究假山池沼的配合，讲究花草树木的映衬，讲究近景远景的层。走在留园中，你会发现，它的景致总是堆叠的那么巧妙。造园者很好的运用了大小、曲直、明暗、高低、收放等手法，将景物搞成多层空间，层层错落，相互借用，以小见大。游览者无论站在哪个点上，眼前总是一幅完美的图画。每一个建筑物在其景区都有着自己鲜明的个性，从全局来看，没有丝毫零乱之感，给人有一个连续、整体的概念。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\苏州留园1.jpg" alt="" align="right" style="width: 200px;height: 170px;">
+                <p class="pstyle">
+                    1953年苏州市人民政府决定修复留园，并邀请了一批学识渊博的皇家园林专家和技艺高超的古建筑工人。经过半年的修整，一代名园重现光彩。1961年3月4日，留园被中华人民共和国国务院列入第一批全国重点文物保护单位。90年代后，又修复了盛家祠堂和部分住宅，使原来宅、园相连的风貌进一步趋向完整。1997年12月，作为苏州古典园林典型例证，经联合国教科文组织批准，留园与拙政园、网师园、环秀山庄共同列入《世界遗产名录》。2007年，苏州园林（拙政园、虎丘山、留园）被评为国家AAAAA级旅游景区。
+                </p>
+
+            </div>
+            <div class="slide1">
+                <h1>无锡寄畅园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    寄畅园，又名风谷行窝、凤谷山庄、秦园，位于江苏省无锡市梁溪区惠山古镇景区文物古迹区内[8]，地处无锡市西郊东侧的惠山东麓，毗邻惠山寺；始建于明正德十五年（1520年），兴盛于明万历至清康乾年间，是江南地区山麓别墅式古典园林、无锡市唯一的明代古典园林，与瞻园、留园、拙政园并称江南四大名园。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\无锡寄畅园3.jpg" alt="" align="right">
+                <p class="pstyle">
+                    寄畅园位于无锡城西的锡山和惠山间平坦地段上，东北面有新开河(惠山滨)连接于大运河。园址占地约1公顷，属于中型的别墅园林。元代原为佛寺的一部分，明代正德年间(1506—1521
+                    年)兵部尚书秦金辟为别墅，初名“凤谷行窝”，后归布政使秦梁。万历十九年(1591年)，秦燿由湖广巡抚罢官回乡，着意经营此园并亲自参与筹划，疏浚池塘大兴土木成二十景，改园名为“寄畅园”，取王羲之《兰享序》“一觞一咏，亦足以畅叙幽情……因寄所托，放浪形骸之外”
+                    的文意。</p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\无锡寄畅园2.jpg" alt="" align="left">
+                <p class="pstyle">
+                    清初，园曾分割为两部分，康熙年间进行全面修整，延聘著名叠山家张南垣之侄张鉽重新堆筑假山，又引惠山的“天下第二泉”之泉水流注园中。经过秦氏家族几代人的三次较大规模的经营建设，寄畅园更为完美，名声大噪，成为当时江南名园之一。清代康熙、乾隆二帝南巡，均曾驻足此园。乾隆赋诗
+                    “独爱兹园胜，偏多野兴长”来赞美寄畅园。</p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\无锡寄畅园1.jpg" alt="" align="right">
+                <p class="pstyle">
+                    清初，园曾分割为两部分，康熙年间进行全面修整，延聘著名叠山家张南垣之侄张鉽重新堆筑假山，又引惠山的“天下第二泉”之泉水流注园中。经过秦氏家族几代人的三次较大规模的经营建设，寄畅园更为完美，名声大噪，成为当时江南名园之一。清代康熙、乾隆二帝南巡，均曾驻足此园。乾隆赋诗
+                    “独爱兹园胜，偏多野兴长”来赞美寄畅园。寄畅园主要由门厅、法帖碑廊、秉礼堂、庭院、碑墙、含贞斋、九狮台、八音涧、案墩、梅亭、嘉树堂、大石山房、涵碧亭、七星桥、锦汇漪、鹤步滩、知鱼槛、凌虚阁等建筑景观组成；是江南私家园林的集大成者，对于研究江南园林具有较强的代表性。1952年，秦氏后裔将寄畅园献给国家，无锡市人民政府进行保护性修复，将原贞节祠纳入园中，即今“秉礼堂”一组小巧庭院。重修九狮图石，重建嘉树堂、梅亭、邻梵阁、凌虚阁、先月榭、卧云堂等建筑，恢复了寄畅园全盛时期的园林景观。1988年1月13日，寄畅园被中华人民共和国国务院公布为第三批全国重点文物保护单位。
+                </p>
+            </div>
+            <div class="slide1">
+                <h1>嘉兴绮园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    绮园，位于浙江省嘉兴市海盐县武原镇，绮园原为“冯氏花园”，为江南典型私家园林风格。清同治九年（1870年），园主冯缵斋于此建宅三进；清同治十年（1871年），冯缵斋综合其岳父黄燮清经营的明代故园拙宜园、砚园两废园之精华，在自己住宅“冯三乐堂”后辟地修建园林，建成绮园。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\嘉兴绮园2.jpg" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    绮园是一座从山水草木中长出来的庄园，任何视眼所及之处都可以被草木缠绕，青草落叶掩埋了无数个故事。前院是住宅区的宅院，现存三乐堂等建筑，而穿过冯宅，便是冯家后花园，园内厅堂馆舍格局看似较多的俗套，但是只要走进后院，就会发现这里的一切其实是以以树木山池为主，除潭影轩较大、水榭次之外，仅有小亭两座，其余全是山水。园内以树木山池为主，古木参天，山、水、竹、木、厅、亭、阁、桥、隧道、飞梁等布局精美，错落有致。看似粗略点缀建筑，但是采取以自然风景为特色的造园手法，更凸显了她的美，那来自生态的美。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\嘉兴绮园1.jpg" alt="" align="left" style="width: 230px;height: 200px;">
+                <p class="pstyle">
+                    春暖花开时，可以在这里赏花品茶，闻着花香嗅着蜜的香甜；夏草依依时，满园子的参天大树，比园子还老的树木们，用繁茂的枝叶撑起的一把擎天巨伞，为这个夏日留出一片凉爽：秋金满地之时，阳光不再火辣辣，温暖的金色挥挥洒洒落进叶与叶的缝隙之间，偶尔落在肩上，暖暖的，好像爱人坚实温暖的拥抱；冬雪飘飘满目苍白，撑着伞，坐在在院落石凳上，看雪花一片一片飘落，我想这个场景一定很唯美。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\嘉兴绮园.jpg" alt="" align="right">
+                <p class="pstyle">
+                    绮园占地10000平方米，水面约2000平方米，树木遮盖面积达7000平方米，百年古树名木四十余株。绮园在造园风格上兼收苏州、扬州、杭州园林三种风格之长，整个园林妙用了“水随山转，山因水活”的叠山理水园论，以树木山池为主，建筑仅略做点缀。绮园自成一区，不附属于住宅区；且用大面积水域形式了以聚为主、散为辅，山水相随的布局。绮园在其造园艺术及其古树名木上均有重大价值整个园林的建造，妙用了“水随山转，山因水活”的叠山理水园论。小巧而构筑精妙，山水相映，怡情养性。百年私家豪宅和园林，幽静茂密。假山湖潭，高低错落，让总是奔赴在尘嚣喧嚣中的人得到放松休闲。2001年，绮园被列为全国重点文物保护单位。2014年，被评为国家AAAA级旅游景区。
+                </p>
+
+            </div>
+
+            <div class="slide1">
+                <h1>顺德清晖园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">清晖园，位于广东省佛山市顺德区大良街道清晖路23号，是始建于明代的岭南园林建筑，占地面积为2.2万平方米，与佛山梁园、番禺余荫山房、东莞可园并称为岭南四大园林。</p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\顺德清晖园1.jpg" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">另外,清晖园还是中国十大名园、广东四大名园之一，还是中华文化传承基地，佛山新八景之一，顺德新十景之一，
+                    其构筑精巧，布局紧凑，建筑艺术颇高，建筑物形式轻巧灵活，雅读朴素，庭园空间主次分明，结构清晰。利用碧水、绿树、古墙、漏窗、石山、小桥、曲廊等与亭台楼阁交互融合，集中国古代建筑、园林、雕刻、诗书、灰雕等艺术于一身。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\顺德清晖园2.jpg" alt="" align="left" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    清晖园布局是大园包小园。清晖园的三大块大体为：由原正门进入的东南角区，中部的旧园区，西北部近年兴建的新园区。区域间虽有分隔，但却以游廊、甬道以及各式小门相互勾连，融为一体。以旧园区为例，其西部以方池为中心；中部偏北的船厅等是精华所在；南部的竹苑、小蓬瀛、笔生花馆等组成庭院，形成园中有园，即大园包小园的格局和韵味。清晖园格局形成前疏后密，前低后高的独特布局，但疏而不空，密而不塞，建筑造型轻巧灵活，开敞通透。清晖园园林空间组合是通过各种小空间来衬托突出庭院中的水庭大空间，造园的重点围绕着水亭。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\顺德清晖园3.png" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    清晖园主体建筑包括有船厅、碧溪草堂、澄漪亭、惜阴书屋、真砚斋、状元堂等。园内植物200多种，且有多棵百年古树、中外名木。清晖园曾为状元府邸，也曾为大良龙氏的家园，这些居住在清晖园的家族走出了不少历史名人。九十年代初，顺德市委、市政府鉴于其历史、艺术和观赏价值，对清晖园进行再度兴工扩建，扩复旧制，增加了凤来峰、读云轩、留芬阁、沐英涧、红蕖书屋等多处建筑景点，面积由
+                    6600多平方米扩大到9795平方米，二十世纪末，顺德市再度扩建清晖园 ，
+                    面积增至22500平方米。2007年12月7日，清晖园被国家旅游局批准为国家AAAA级旅游景区，2013年，国务院核定公布清晖园为第七批全国重点文物保护单位。2011年11月，龙氏后人向政府捐献清晖园的地契、房契、龙氏先人的照片、资料，以及龙启明担任飞虎队队员时的照片、信件等近百件文物，具有极高历史价值。
+                </p>
+            </div>
+            <div class="slide1">
+                <h1>扬州个园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    个园位于江苏省扬州市广陵区东北隅，盐阜东路10号，曾荣获第三批“全国重点文物保护单位”和“首批国家重点公园”称号。这座清代扬州盐商宅邸私家园林，以遍植青竹而名，以春夏秋冬四季假山而胜。</p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\扬州个园.jpg" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    个园于公元1818年两淮盐总黄至筠在寿芝园的基础上改建成而成，因主人爱竹而得名，与北京颐和园、承德避暑山庄和苏州拙政园并称为四大名园。个园中最大的特色便是"四季假山"的构思与建筑，在面积不足五十亩的园子里，开辟了四个形态逼真的假山区，分别命以春、夏、秋、冬之称。整个园子以宜雨轩为中心，游人沿着顺势的方向，可尽览四季秀景。个园采用了不同质料的石料，体现不同的季节，以竹石为主体，以分峰用石为特色。十二生肖石象征春天，太湖石象征盛夏的江南景色，黄石烘托秋天群山的挺拔，颜色洁白的雪石突出冬日里积雪未化的寒冷感觉，各具特色，表达出诗情画意。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\扬州个园2.jpg" alt="" align="left" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    个园是一处典型的私家住宅园林，全园分为中部花园、南部住宅、北部品种竹观赏区。从住宅进入园林，首先看到的是月洞形园门，门上石额书写“个园”二字。园门后是春景，夏景位于园之西北，秋景在园林东北方向，冬景则在春景东边。扬州园林清嘉庆以后便逐步走向衰颓，而黄氏个园在清嘉庆道光时相反地得到了发展，好似清末扬州的寄啸山庄一样，众家园林走向没落而寄啸山庄独兴,这和当时的时代有关系的。个园发展到清咸丰间曾经兵焚虽无多大损坏，但也逐步走向萧条。个园的取名也别有一番用意：园内多种植竹子，故取竹字的一半而命名，为“个园”。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\扬州个园3.jpg" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    建筑物体量过大，尤其是北面的七开间楼房“抱山楼”庞然大物，似乎压过了园林的山水环境。造成这种现象的原因可能是因为园主人需要在园林里进行广泛的社交活动，满足争奇斗富的心理。虽然院内有山池之美，但附庸风雅的“书卷气”终于脱不开“市井气”。这是后期扬州园林普遍存在的现象，个园就是其中一例。2005年，个园被誉为国家AAAA级旅游景区，全国二十家重点公园之一。2016年个园成为首批国家重点花文化基地之一。
+                </p>
+
+            </div>
+            <div class="slide1">
+                <h1>扬州何园</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    何园，坐落于江苏省扬州市的徐凝门街66号，又名”寄啸山庄“，是一处始建于清代中期的中国古典园林建筑，被誉为“晚清第一园“，面积1.4万余平方米，建筑面积7000余平方米。何园由清光绪年间何芷舠所造，片石山房系石涛大师叠山作品。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\扬州何园1.jpg" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    何园的主要特色是充分发挥了廊道建筑的功能和魅力，1500米复道回廊，是中国园林中少有的景观。左右分流、高低勾搭、衔山环水、登堂入室，形成全方位立体景观和全天候游览空间，发挥了中国园林艺术的回环变化之美和四通八达之妙，是中国最早的立交桥雏形。中国的古典私家园林的建筑布局，不同于国外园林中轴线对称理念，采用的是自然法，其亭台楼榭不规则地散落分布于或人造或依地貌而成的山水之间，取天人合一之意境。扬州何园，不仅深谙中国园林的山水境界，也熟悉开放性布局和由各种两层回廊组成的网络状结构。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\扬州何园2.jpg" alt="" align="left" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    何园其建筑特色之冠――享有“天下第一廊”美誉的1500米复道回廊构成园林建筑四通八达之利与回环变化之美，在中国园林中绝无仅有，被业内专家称为中国立交桥的雏形；片石山房“天下第一山”，是画坛巨匠石涛和尚叠石的“人间孤本”。
+                    著名学者余秋雨称在中国造园史上，能让人仰望的就是何园的“片石山房”了。进何园，宛如走进一幅历史人文的旖旎画卷；一位位传奇人物，曲折隐秘的心阶历程在此淋漓披露；一个由封建走向开明的世家大族兴衰荣辱的生存活剧在此栩栩上演；一部风云变幻的中国近代史丰富多彩的外传故事在此生动展现。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\扬州何园3.jpg" alt="" align="right" style="width: 250px;height: 170px;">
+                <p class="pstyle">
+                    1937年日军侵华，占领了东三省以致大半个中国，部分伤兵驻扎何园。1988年，何园与个园一同被国务院授予第三批“全国重点文物保护单位”的称号。2005年，何园被中国文物学会会长、园林泰斗罗哲文称之为“晚清第一园”。何园是全国重点文物保护单位，国家AAAA级旅游景区，全国首批20个重点公园之一。何园是清代后期扬州园林的代表作，为全国重点文物保护单位。
+                </p>
+            </div>
+            <div class="slide1">
+                <h1>保定古莲花池</h1>
+                &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <p class="pstyle">
+                    古莲花池，原名雪香园，为保定上谷八景之一的莲漪夏艳，位于河北省保定市莲池区裕华西路244号，始建于元太祖二十二年（1227年），总面积为2.4万平方米，其中池水面积7900平方米。</p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\保定古莲花池2.jpg" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">古莲花池为全国重点文物保护单位，中国十大名园之一。始建于金元之交(公元1227年)，初名“雪香园”，为私第园林。明代为官府花园，因园内池中荷花茂盛称“古莲花池”，曾有
+                    “水鉴公署”之称。清雍正十一年(1733年)，建莲池书院，乾隆十年 (1745年)建皇帝行宫，十四年
+                    (1749年)，直隶总督方观承增建亭台楼阁，形成十二景，被誉为“城市蓬莱”乾隆皇帝一生七次巡幸莲池，嘉庆、光绪皇帝及慈禧太后也曾在此驻蹲。</p>。
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\保定古莲花池1.jpg" alt="" align="left" style="width: 200px;height: 270px;">
+                <p class="pstyle">
+                    1900年10月15日，英、法、德、意四国联军入侵保定，把园内珍费文物洗劫一空，亭、台、楼、阁化为灰烬,后经多次修缮恢复,但已无法恢复其盛世时原貌。从1999年12月河北省、保定市批准复原修缮莲池十二景立项始至2009年6月复原修缮莲池十二景工程竣工止，历经十余年，总投资1600余万元，修缮后的古莲花池使古老的园林再现了清盛时的风貌。古莲花池是集园林、行宫、书院为一体，
+                    兼有中国南北园林之美的古典园林。
+                    以环水筑榭为显著特点，以水为胜，因荷得名。园林内主要有春午坡、濯锦亭、篇留洞、观澜亭、绿野梯桥、红枣坡、藻泳厅、君子长生馆、水东楼等古建筑，秀丽的宛虹桥、曲桥和元代建的白玉桥，参差在假山奇石、林木荷塘间，构成了一幅“湖中有景、景中含诗”的优美画卷。
+                </p>
+                <br> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+                <img src="images\保定古莲花池3.jpg" alt="" align="right" style="width: 270px;height: 200px;">
+                <p class="pstyle">
+                    莲池现占地面积3万余平方米，整体布局以池水为主体，亭、台、楼、阁等一组组玲珑别致集南北风格的古典式建筑环池而建。园内藤缠古槐，绿柳垂掩，一泓碧水，锦鳞成群，荷香飘溢，碑碣林立。有著名的《莲池书院法帖》、唐碑、御制碑和王阳明诗碑等，这些都是直隶保定文化的缩影。这里曾留下开国元勋毛泽东、刘少奇等老一辈无产阶级革命家的足迹乔石、李瑞环及新一代领导人胡锦涛、吴邦国等领导先后来莲池视寒工作，而今，更以婀娜的风姿和深厚的文化底蕴吸引着四面八方的游客。
+                </p>
+            </div>
+        </main>
+    </div>
+    <div id="footer">
+        <p style="font-size:larger;text-align: center;"> <i> @WEB前端开发课程版权</i></p>
+        <p style="font-size:larger;text-align: center;">2020-2025</p>
+        <div class="bottom">
+            <a href="#header">返回顶部</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="JS\gardenstyle.js"> </script>
+    <script type="text/javascript" src="JS\map.js"> </script>
+</body>
+
+</html>

@@ -1,0 +1,21 @@
+# --- MV 测试 ---
+MV dir1/file1_copy.txt dir1/file1_renamed.txt  # 重命名文件
+LS dir1# 查看结果
+
+# 移动文件到目录
+MV dir1/file1_renamed.txt dir2/  # 移动文件到目录
+LS dir2  # 查看目标目录
+
+# 移动并重命名目录
+MV dir4/ dir5/  # 移动并重命名目录
+LS  # 查看结果
+
+# 移动多个文件到目录
+MKDIR dir6  # 创建多文件移动目标目录
+# 创建要移动的源文件
+WRITE mv_source1.txt "移动源文件1"
+WRITE mv_source2.txt "移动源文件2"
+WRITE dir6/mv_source_dir6.txt "dir6源文件1"
+MV -fv mv_source1.txt mv_source2.txt dir6  # 移动多个文件
+LS dir6  # 查看目标目录
+

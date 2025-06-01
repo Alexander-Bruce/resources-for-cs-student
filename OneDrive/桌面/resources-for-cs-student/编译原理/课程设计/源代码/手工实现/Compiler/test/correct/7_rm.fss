@@ -1,0 +1,20 @@
+# --- RM 测试 ---
+# 删除文件
+mkdir dir7
+write dir7/file1.txt "内容"
+write dir7/file2.txt "内容"
+RM dir7/file1.txt  # 删除文件
+LS dir7  # 查看结果
+
+# 为-f测试
+write dir7/file1.txt "内容"
+RM -f non_existent_for_rm_f.txt  # -f选项对不存在的文件不应报错
+
+# 删除空目录
+MKDIR empty_dir_for_rm  # 创建空目录
+RM empty_dir_for_rm  # 删除空目录
+LS  # 查看结果
+
+# 递归删除多文件
+RM -rf dir2 dir3 dir4 dir5 dir6 dir7
+LS  # 查看结果

@@ -1,0 +1,28 @@
+#include<iostream>
+#include<cmath>
+#include<string>
+using namespace std;
+int main()
+{
+    int GirlGuess;
+    int BoyGuess;
+    int Number;
+    cin >> Number;
+    for (int i = 0; i < Number; i++)
+    {
+        int GirlWin = 0, BoyWin = 0, Draw = 0;
+        cin >> GirlGuess >> BoyGuess;
+        for (int j = 1; j <= 6; j++)
+        {
+            //temp等于两数相减绝对值
+            int Temp1 = abs(GirlGuess - j);
+            int Temp2 = abs(BoyGuess - j);
+            if (Temp1 == Temp2) Draw++;
+            else if (Temp1 < Temp2) GirlWin++;
+            else BoyWin++;
+            //printf("%d %d %d %d %d\n", Temp1, Temp2, GirlWin, Draw, BoyWin);
+        }
+        printf("%d %d %d\n", GirlWin, Draw, BoyWin);
+    }
+	return 0;
+}

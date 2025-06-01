@@ -1,0 +1,34 @@
+//经典的切割杆问题，其中需要最大化出售杆子的切割方式的总价值。
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// 动态规划函数，用于计算杆子切割的最大价值
+void FindMaximumValue(const vector<int>& price, const vector<int>& length, vector<vector<int>>& dp, int rlength, int plength) {
+    for (int n = 1; n <= plength; n++) {  // 遍历每种长度
+        for (int currLen = 1; currLen <= rlength; currLen++) {  // 遍历每种可能的总长度
+            int maxValue = 0;  // 初始化当前长度的最大收益为 0
+            // 尝试对当前长度进行不同次数的切割
+            for (int max = 0; max * length[n] <= currLen; max++) {
+                int valueIfCut = dp[n - 1][currLen - max * length[n]] + max * price[n];  // 计算切割当前长度的总价值
+                maxValue = max(maxValue, valueIfCut);  // 更新最大收益
+            }
+            dp[n][currLen] = maxValue;  // 存储最大收益
+        }
+    }
+}
+
+int main() {
+    int length;
+    while (cin >> length) {  // 读取输入直到结束
+        vector<int> lengths(length + 1), prices(length + 1);
+        for (int i = 1; i <= length; i++) lengths[i] = i;  // 初始化长度数组
+        for (int i = 1; i <= length; i++) cin >> prices[i];  // 读取每个长度的价格
+        
+        vector<vector<int>> dp(length + 1, vector<int>(length + 1, 0));  // 初始化动态规划表
+        FindMaximumValue(prices, lengths, dp, length, length);  // 调用动态规划函数
+        
+        cout << dp[length][length] << endl;  // 输出最大价值
+    }
+    return 0;
+}

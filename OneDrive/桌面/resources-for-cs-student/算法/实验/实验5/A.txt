@@ -1,0 +1,38 @@
+//找零问题的程序。在给定硬币面额情况下，找出给定金额需要的最小硬币数量。
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// 硬币的面额数组，是全局常量
+const int coinsValue[] = {1, 2, 5, 10, 20, 50, 100};
+
+int main() {
+    int times;  // 测试案例的数量
+    cin >> times;  // 输入测试案例数量
+
+    for(int i = 0; i < times; i++) {
+        int value;  // 当前测试案例需要找的总金额
+        cin >> value;
+
+        int count = 0;  // 用来计数需要的硬币数量
+        while (value > 0) {
+            // 从最大的硬币面额开始尝试
+            for (int j = sizeof(coinsValue) / sizeof(coinsValue[0]) - 1; j >= 0; j--) {
+                if (value >= coinsValue[j]) {  // 如果当前金额大于等于硬币面额
+                    value -= coinsValue[j];  // 减去这个硬币的面额
+                    count++;  // 硬币数加一
+                    break;  // 一次只使用一个硬币，所以找到后立即中断内循环
+                }
+            }
+        }
+
+        // 根据是否是最后一个输出决定是否添加换行符
+        if (i == times - 1)
+            cout << count;
+        else
+            cout << count << endl;
+    }
+
+    return 0;
+}

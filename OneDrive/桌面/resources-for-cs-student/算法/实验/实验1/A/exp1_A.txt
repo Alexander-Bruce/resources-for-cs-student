@@ -1,0 +1,26 @@
+#include<iostream>
+#include<cmath>
+#include<string>
+using namespace std;
+int main()
+{
+   //count how many of the N numbers from 1 to N do not contain the digit 7 and 4
+	int Number;
+	cin >> Number;
+	for (int k = 0; k < Number; k++)
+	{
+		int N;
+		cin >> N;
+		int count = 0;
+		for (int i = 1; i <= N; i++)
+		{
+			string s = to_string(i);
+			if (s.find('7') == string::npos && s.find('4') == string::npos)
+			{
+				count++;
+			}
+		}
+		cout << count << endl;
+	}
+	return 0;
+}

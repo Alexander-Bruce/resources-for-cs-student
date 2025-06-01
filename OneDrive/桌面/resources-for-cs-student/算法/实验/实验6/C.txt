@@ -1,0 +1,87 @@
+//保留k个独立集群的情况下，连接其余点的最小成本。这通常是使用最小生成树的变体来解决的，通常用克鲁斯卡尔算法实现。
+#include <iostream>
+#include <vector>
+#include <algorithm>
+ 
+using namespace std;
+ 
+// 定义一个并查集类，用于管理元素的集合划分
+class DisjointSet {
+private:
+    vector<int> parent; // 父节点数组
+    vector<int> rank;   // 秩数组，用于优化合并操作
+ 
+public:
+    // 构造函数，初始化n个元素的并查集
+    DisjointSet(int n) {
+        parent.resize(n);
+        rank.resize(n);
+        for (int i = 0; i < n; ++i)
+            parent[i] = i; // 初始时，每个元素的父节点是它自己
+    }
+ 
+    // 查找函数，用于查找元素x的根节点
+    int find(int x) {
+        if (parent[x] != x)
+            parent[x] = find(parent[x]); // 路径压缩
+        return parent[x];
+    }
+ 
+    // 合并函数，用于合并x和y所在的集合
+    bool union_sets(int x, int y) {
+        int root_x = find(x);
+        int root_y = find(y);
+        if (root_x == root_y)
+            return false; // x和y已在同一集合中
+        if (rank[root_x] < rank[root_y])
+            parent[root_x] = root_y; // 将较小树的根节点链接到较大树的根节点
+        else if (rank[root_x] > rank[root_y])
+            parent[root_y] = root_x;
+        else {
+            parent[root_y] = root_x; // 秩相同，任意合并并增加秩
+            rank[root_x]++;
+        }
+        return true;
+    }
+};
+ 
+// 函数：计算构建道路的最小成本
+int min_cost_to_build_roads(int n, int m, int k, vector<vector<int>>& roads) {
+    sort(roads.begin(), roads.end(), [](const vector<int>& a, const vector<int>& b) {
+        return a[2] < b[2]; // 根据成本对道路进行排序
+    });
+ 
+    DisjointSet ds(n);
+    int total_cost = 0; // 总成本
+    int num_edges = 0;  // 已使用的边数
+ 
+    for (const auto& road : roads) {
+        int u = road[0] - 1; // 转换为从0开始的索引
+        int v = road[1] - 1;
+        int cost = road[2];
+        if (ds.union_sets(u, v)) {
+            total_cost += cost; // 累加成本
+            num_edges++;
+            if (num_edges == n - k) // 如果连接的边数达到n-k，停止
+                return total_cost;
+        }
+    }
+ 
+    return -1; // 如果无法连接成n-k个边，返回-1
+}
+ 
+// 主函数
+int main() {
+    int n, m, k;
+    cin >> n >> m >> k;
+    vector<vector<int>> roads(m, vector<int>(3));
+    for (int i = 0; i < m; ++i) {
+        cin >> roads[i][0] >> roads[i][1] >> roads[i][2];
+    }
+    int result = min_cost_to_build_roads(n, m, k, roads);
+    if (result == -1)
+        cout << "No Answer\n"; // 输出无解
+    else
+        cout << result << endl; // 输出最小成本
+    return 0;
+}

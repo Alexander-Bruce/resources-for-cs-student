@@ -1,0 +1,54 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// Knapsack 函数负责进行动态规划计算，以确定最大的满足特定概率要求的价值
+void Knapsack(vector<double>& dp, vector<double>& probabilities, vector<int>& treasures, int sum) {
+    int numberOfBox = treasures.size();  // 宝箱的数量
+    for (int i = 0; i < numberOfBox; i++) {  // 遍历每一个宝箱
+        // 从后往前遍历，确保每个宝箱只被计算一次
+        for (int j = sum; j >= treasures[i]; j--) {
+            // 更新 dp[j]，取当前不放宝箱和放入当前宝箱两种情况的最大值
+            // dp[j - treasures[i]] * (1 - probabilities[i]) 表示放入宝箱后，成功的概率
+            dp[j] = max(dp[j], dp[j - treasures[i]] * (1 - probabilities[i]));
+        }
+    }
+}
+
+int main() {
+    int times;  // 测试用例数量
+    cin >> times;
+    while (times--) {
+        double probability;  // 需要达到的成功概率阈值
+        int numberOfBox;     // 宝箱数量
+        cin >> probability >> numberOfBox;
+        vector<double> probabilities(numberOfBox);  // 每个宝箱失败的概率
+        vector<int> treasures(numberOfBox);         // 每个宝箱的价值
+        int sum = 0;  // 所有宝箱的总价值，用于初始化 dp 数组
+
+        // 读取每个宝箱的价值和失败概率
+        for (int j = 0; j < numberOfBox; j++) {
+            cin >> treasures[j] >> probabilities[j];
+            sum += treasures[j];  // 累加所有宝箱的价值
+        }
+
+        // 初始化 dp 数组，大小为总价值加一，所有元素初始化为 0，dp[0] 设置为 1.0（完全成功的初始状态）
+        vector<double> dp(sum + 1, 0);
+        dp[0] = 1.0;
+
+        // 调用 Knapsack 函数处理背包问题
+        Knapsack(dp, probabilities, treasures, sum);
+
+        // 找到最大的价值，使得对应的成功概率不低于给定阈值
+        int maxValue = 0;
+        for (int j = 0; j <= sum; j++) {
+            if (dp[j] >= 1 - probability)
+                maxValue = max(j, maxValue);
+        }
+
+        // 输出符合条件的最大价值
+        cout << maxValue << endl;
+    }
+    return 0;
+}

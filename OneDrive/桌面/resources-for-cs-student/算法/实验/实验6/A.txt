@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+ 
+// 查询数组中指定索引范围[start, end]的元素之和
+int Query(int *numbers, int start, int end) {
+    int sum = 0;
+    for (int i = start; i <= end; i++) {
+        sum += numbers[i];
+    }
+    return sum;
+}
+ 
+// 在数组的指定索引index上增加plus_value
+void Add(int *numbers, int index, int plus_value) {
+    numbers[index] += plus_value;
+}
+ 
+// 在数组的指定索引index上减少minus_value，且不让元素小于0
+void Subtract(int *numbers, int index, int minus_value) {
+    numbers[index] = (numbers[index] - minus_value) > 0 ? (numbers[index] - minus_value) : 0;
+}
+ 
+int main() {
+    int times = 1;  // 用于输出Case编号
+    int T;          // 输入的案例数量
+    scanf("%d", &T);
+    while (T--) {
+        printf("Case %d:\n", times);
+        int N;      // 序列中的元素数量
+        scanf("%d", &N);
+        int *numbers = (int*)malloc((N + 1) * sizeof(int)); // 动态分配数组存储元素
+        numbers[0] = 0; // 数组第一个元素不使用，从1开始使用
+        for (int i = 1; i <= N; i++) {
+            scanf("%d", &numbers[i]); // 读取每个元素
+        }
+        while (1) {
+            char command[10]; // 存储命令
+            scanf("%s", command); // 读取命令
+            if (command[0] == 'E' && command[1] == 'n' && command[2] == 'd') {
+                break; // 如果命令是"End"，则结束循环
+            }
+            int start, end, plus_value, minus_value, index;
+            switch (command[0]) {
+                case 'Q': // 查询命令
+                    scanf("%d %d", &start, &end);
+                    printf("%d\n", Query(numbers, start, end));
+                    break;
+                case 'A': // 增加命令
+                    scanf("%d %d", &plus_value, &index);
+                    Add(numbers, index, plus_value);
+                    break;
+                case 'S': // 减少命令
+                    scanf("%d %d", &minus_value, &index);
+                    Subtract(numbers, index, minus_value);
+                    break;
+            }
+        }
+        free(numbers); // 释放动态分配的内存
+        times++;
+    }
+    return 0;
+}

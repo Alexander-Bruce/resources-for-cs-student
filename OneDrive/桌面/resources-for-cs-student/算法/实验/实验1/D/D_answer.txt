@@ -1,0 +1,44 @@
+	import java.util.ArrayList;
+import java.util.Scanner;
+ 
+public class Main {
+    public static void main(String[] args) {
+        Scanner In = new Scanner(System.in);
+        int times = Integer.parseInt(In.nextLine());
+        for(int i = 0; i < times; i++)
+        {
+            int n, m, X, R;
+            n = In.nextInt(); m = In.nextInt();
+            X = In.nextInt(); R = In.nextInt(); In.nextLine();
+            ArrayList<Integer> terminalsX = new ArrayList<Integer>();
+            ArrayList<Integer> terminalsY = new ArrayList<Integer>();
+            for(int j = 1; j <= X; j++)
+            {
+                terminalsX.add(In.nextInt());
+                terminalsY.add(In.nextInt());
+                In.nextLine();
+            }
+            System.out.println(Confine(n, m, X, R, terminalsX, terminalsY));
+        }
+    }
+    public static int Confine(int n, int m, int X, int R, ArrayList<Integer> terminalsX, ArrayList<Integer> terminalsY)
+    {
+        int max = 0;
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= m; j++)
+            {
+                int count = 0;
+                for(int k = 0; k < X; k++)
+                {
+                    double distance = Math.abs(i - terminalsX.get(k))*Math.abs(i - terminalsX.get(k)) + Math.abs(j - terminalsY.get(k))*Math.abs(j - terminalsY.get(k));
+                    distance = Math.sqrt(distance);
+                    if(distance <= R/1.0) count++;
+                }
+                if(count > max) max = count;
+            }
+        }
+ 
+        return max;
+    }
+}

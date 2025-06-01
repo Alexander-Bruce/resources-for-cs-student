@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="backend.mapper.OrderMapper">
+    <resultMap id="OrderResultMap" type="backend.VO.OrderVO">
+        <result property="orderId" column="order_id" />
+        <result property="productId" column="product_id" />
+        <result property="productName" column="product_name" />
+        <result property="time" column="time" />
+        <result property="finish" column="finish" />
+    </resultMap>
+    
+    <resultMap id="orderResultMapWithUser" type="backend.VO.OrderWithUser">
+        <result property="id" column="id" />
+        <result property="username" column="username" />
+        <result property="password" column="password" />
+        <collection property="order" ofType="backend.VO.OrderVO">
+            <result property="orderId" column="order_id" />
+            <result property="time" column="time" />
+        </collection>
+
+        <collection property="product" ofType="backend.entity.Product">
+            <result property="productName" column="product_name" />
+            <result property="price" column="price" />
+        </collection>
+
+    </resultMap>
+    
+    <select id="getOrdersWithUser" resultMap="orderResultMapWithUser">
+        select 
+            u.id, 
+            u.username, 
+            u.password,
+            o.order_id,
+            o.time,
+            o.finish,
+            p.product_name,
+            p.price 
+        from user as u 
+        left join `order` as o on u.id = o.user_id
+        left join product as p on p.id = o.product_id
+        where u.username = #{username}
+    </select>
+
+    <select id="getOrders" resultMap="OrderResultMap">
+        SELECT
+            o.order_id as order_id,
+            o.product_id,
+            p.product_name,
+            o.time,
+            p.price,
+            o.finish as finish
+        FROM
+            `order` AS o
+                JOIN
+            `product` AS p ON o.product_id = p.id
+        WHERE
+            o.user_id = #{id}
+        order by o.time desc
+    </select>
+
+    <delete id="deleteOrder">
+        DELETE FROM `order` WHERE order_id = #{orderId}
+    </delete>
+
+    <insert id="addOrder">
+        INSERT INTO `order` (product_id, user_id, time)
+        VALUES (#{productId}, #{userId}, #{time})
+    </insert>
+
+</mapper>

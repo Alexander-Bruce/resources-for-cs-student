@@ -1,0 +1,84 @@
+	import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+ 
+public class Main {
+    private static int [][]horizon = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+    public static void main(String []args)
+    {
+        Scanner in = new Scanner(System.in);
+        char [][] Matrix = new char[1001][1001];
+        boolean [][] Visited = new boolean[1001][1001];
+        int [][] distance = new int[1001][1001];
+        Queue<int[]> queue = new LinkedList<>();
+        for(char [] row : Matrix)
+            Arrays.fill(row, '\0');
+        for(boolean [] row : Visited)
+            Arrays.fill(row, false);
+        for(int [] row : distance)
+            Arrays.fill(row, -1);
+        int n = in.nextInt(); in.nextLine();
+        while(n != 0)
+        {
+            int MenRow = 0, MenCol = 0, ExitRow = 0, ExitCol = 0;
+            for(int i = 1; i <= n; i++)
+            {
+                String line = in.nextLine();
+                for(int j = 1; j <= n; j++)
+                {
+                    Matrix[i][j] = line.charAt(j - 1);
+                    if(Matrix[i][j] == 'M')
+                    {
+                        MenRow = i;
+                        MenCol = j;
+                        distance[i][j] = 0;
+                    }
+                    if(Matrix[i][j] == 'D') {
+                        ExitRow = i;
+                        ExitCol = j;
+                    }
+                }
+            }
+            queue.add(new int[]{MenRow, MenCol, 0});
+            int count = 0;
+            boolean judge = BFSShortestPath(n, MenRow, MenCol, Matrix, Visited, queue, horizon, distance);
+            System.out.println(distance[ExitRow][ExitCol]);
+            for(char [] row : Matrix)
+                Arrays.fill(row, '\0');
+            for(boolean [] row : Visited)
+                Arrays.fill(row, false);
+            for(int [] row : distance)
+                Arrays.fill(row, -1);
+            while(!queue.isEmpty())
+                queue.poll();
+            n = in.nextInt();
+            in.nextLine();
+        }
+    }
+    public static boolean BFSShortestPath(int n, int StartPointRow, int StartPointCol, char [][] Matrix, boolean [][] Visited, Queue<int[]> queue, int [][] horizon, int [][]distance)
+    {
+        while(!queue.isEmpty()){
+            int [] current = queue.poll();
+            int row = current[0];
+            int col = current[1];
+            int dis = current[2];
+            for(int [] h : horizon)
+            {
+                int newRow = row + h[0];
+                int newCol = col + h[1];
+                if(newRow >= 1 && newRow <= n && newCol >= 1 && newCol <= n && !Visited[newRow][newCol] && Matrix[newRow][newCol] != '#')
+                {
+                    if(distance[newRow][newCol] == -1 || distance[newRow][newCol] > dis + 1)
+                        distance[newRow][newCol] = dis + 1;
+                    if(Matrix[newRow][newCol] == 'D'){
+                        return true;
+                    }
+                    queue.add(new int[]{newRow, newCol, distance[newRow][newCol]});
+                    Visited[newRow][newCol] = true;
+                }
+            }
+        }
+        return false;
+    }
+}

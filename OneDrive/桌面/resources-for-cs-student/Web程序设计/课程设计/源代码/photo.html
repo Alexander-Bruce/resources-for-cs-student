@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>园林风景图片</title>
+    <link rel="stylesheet" href="css\photo.css" />
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css\navbar.css" />
+    <link rel="stylesheet" href="css\search.css">
+    <script src="https://kit.fontawesome.com/224b934ae2.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+    <div id="search-container" style="display: none;">
+
+        <div id="sidebar-btn">
+            <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+            <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+            <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+        </div>
+  
+        <div id="search-sidebar">
+                 <ul>
+                      <li style="height: 50px;margin: 0;padding: 0;"></li>
+                      <li onclick="hiden();"><a href="Home.html">首页</a></li>
+                      <li onclick="hiden();"> <a href="gardenstyle.html">十大园林</a> </li>
+                      <li onclick="hiden();"><a href="question.html">互动答题</a></li>
+                      <li onclick="hiden();"><a href="photo.html">图片</a></li>
+                      <li onclick="hiden();"><a href="">结束搜索</a></li>
+                 </ul>
+        </div>
+  
+  
+        <div class="search-box">
+            <input type="text" name="" placeholder="请输入内容" class="input_text">
+            <a class="search-btn" href="#">
+            <p>搜索</p>
+            </a>
+        </div>
+    </div>
+
+    <div id="headline"> 
+        <h1>园林风景图片</h1>
+      </div>
+
+    <div id="sidebar">
+        <div class="toggle-btn" onclick ="showslidebar()">
+        </div>
+        
+        <ul>
+           <li></li>
+          <li  onclick="showsearchbox();"><a href="#"> <i class="fa-solid fa-magnifying-glass" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">搜索</p></i></a></li>
+          <li onclick ="showlist();"><a href="javascript:;"> <i class="fa-solid fa-compass" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">页面导航</p></i></a></li>
+          <li  class="list" style="display: none;" onclick="update();showlist();"><a href="#container" style="text-decoration: none;"><i class="fa-duotone fa-house-tree" style="margin-top: 10px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 20px;">园林风景图片</p></i></a></li>
+          <li><a href="index.html"> <i class="fa-solid fa-person" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">登录</p></i></a></li>
+          <li><a href="register.html"> <i class="fa-solid fa-user" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">注册</p></i></a></li>
+        </ul>
+    </div>
+
+
+    <header>
+        <a href="#" class="logo"><img src="images\logo带字母.png" alt="" ></a>
+        <ul>
+        <li><a href="Home.html"><i class="fa-solid fa-house fa-beat">首页</i></a></li>
+        <li>  <a href="gardenstyle.html"><i class="fa-solid fa-globe">十大园林</i></a> </li>
+        <li><a href="question.html"><i class="fa-solid fa-file-contract">互动答题</i></a></li>
+        <li><a href="photo.html"><i class="fa-solid fa-photo-film">图片</i></a></li>
+        <li><a href="javascript:;"><i class="fa-solid fa-bars" onclick ="showslidebar()">导航</i></a></li>
+        </ul>
+         
+
+        
+    </header>
+
+        <section class="banner"></section>
+      
+<script type="text/javascript">
+window.addEventListener("scroll", function(){
+var header = document.querySelector("header");
+header.classList.toggle("sticky", window.scrollY > 0);
+})
+
+
+</script>
+
+<div id="container">
+
+    <div class="formset">
+        <ul class="img-wrapper"></ul>
+    </div>
+</div>
+
+<div id="footer">
+    <p style="font-size:larger;text-align: center;"> <i> @WEB前端开发课程版权</i></p>
+        <p style="font-size:larger;text-align: center;">2020-2025</p>
+        <div class="bottom">
+            <a href="#header">返回顶部</a>
+        </div>
+</div>
+
+<script type="text/javascript" src="JS\photo.js"> </script>
+
+
+</body>
+</html>

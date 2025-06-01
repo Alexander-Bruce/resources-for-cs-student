@@ -1,0 +1,5 @@
+# --- SOURCE 测试 ---
+# 创建要导入的小脚本
+CD ..
+SOURCE test/external_script.fss  # 导入脚本
+READ test/external_script.fss  # 读取由导入脚本创建的文件

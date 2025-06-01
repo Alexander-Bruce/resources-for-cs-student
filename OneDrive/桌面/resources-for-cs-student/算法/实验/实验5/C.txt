@@ -1,0 +1,56 @@
+#include <iostream>
+#include <algorithm>
+#include <queue>
+#include <vector>
+using namespace std;
+
+// 定义一个类来存储每个元素的三个属性：dps（伤害输出），hp（生命值），和计算出的比率rate
+class turple {
+public:
+    int dps;
+    int hp;
+    double rate; // dps与hp的比率
+    turple() {}; // 默认构造函数
+};
+
+// 自定义比较函数，用于排序
+bool cmp(turple t1, turple t2) {
+    double epsilon = 1e-9; // 用于浮点数比较的精度值
+    // 当两个元素的rate相差极小（认为是相等）时，按照dps降序排列
+    if (abs(t1.rate - t2.rate) < epsilon)
+        return t1.dps > t2.dps; 
+    // 否则按照rate降序排列
+    return t1.rate > t2.rate;
+}
+
+int main()
+{
+    int n; // 元素个数
+    while (cin >> n) { // 循环处理多组输入
+        vector<turple> List(n); // 存储所有元素的列表
+        for (int i = 0; i < n; i++) // 读取每个元素的信息
+        {
+            turple t;
+            cin >> t.dps >> t.hp; // 输入dps和hp
+            t.rate = (1.0 * t.dps) / (t.hp * 1.0); // 计算rate
+            List[i] = t; // 存入列表
+        }
+        sort(List.begin(), List.end(), cmp); // 使用自定义比较函数进行排序
+
+        int i = 0; // 初始化索引
+        int cost = 0; // 初始化总成本
+        while (i < n) // 遍历所有元素
+        {
+            while (List[i].hp > 0) // 当前元素的hp大于0时
+            {
+                for (int j = i; j < n; j++) // 添加当前及之后所有元素的dps到总成本
+                    cost += List[j].dps;
+                List[i].hp--; // 当前元素的hp减1
+            }
+            i++; // 处理下一个元素
+        }
+        cout << cost << endl; // 输出总成本
+    }
+
+    return 0;
+}

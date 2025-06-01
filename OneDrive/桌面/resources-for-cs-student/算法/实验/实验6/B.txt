@@ -1,0 +1,76 @@
+#include <iostream>
+#include <vector>
+#include <climits> // 使用 INT_MAX 需要引入的头文件
+
+using namespace std;
+
+// 并查集类定义
+class UnionFind {
+private:
+    vector<int> parent; // 父节点数组
+    vector<int> size;   // 每个组的大小数组
+
+public:
+    // 构造函数，初始化并查集
+    UnionFind(int n) {
+        parent.resize(n + 1); // 索引从1开始
+        size.resize(n + 1, 1); // 初始时，每个节点自成一组，大小为1
+        for (int i = 1; i <= n; i++) {
+            parent[i] = i; // 初始父节点指向自己
+        }
+    }
+ 
+    // 查找操作，路径压缩优化
+    int find(int x) {
+        if (parent[x] != x) { // 如果x不是自己的父节点，递归查找并路径压缩
+            parent[x] = find(parent[x]);
+        }
+        return parent[x]; // 返回x的根节点
+    }
+ 
+    // 合并操作，按秩合并优化
+    void merge(int x, int y) {
+        int xRoot = find(x); // 找到x的根节点
+        int yRoot = find(y); // 找到y的根节点
+        if (xRoot == yRoot) { // 如果已经在同一个集合中，无需合并
+            return;
+        }
+        // 将较小的树合并到较大的树上
+        if (size[xRoot] < size[yRoot]) {
+            parent[xRoot] = yRoot;
+            size[yRoot] += size[xRoot];
+        } else {
+            parent[yRoot] = xRoot;
+            size[xRoot] += size[yRoot];
+        }
+    }
+ 
+    // 获取最小组的大小
+    int getMinSize() {
+        int minSize = INT_MAX;
+        for (int i = 1; i < size.size(); i++) {
+            if (parent[i] == i) { // 只考虑根节点
+                minSize = min(minSize, size[i]);
+            }
+        }
+        return minSize;
+    }
+};
+ 
+int main() {
+    int T; // 测试案例数
+    cin >> T;
+    while (T--) {
+        int N, M; // N为节点数，M为边数
+        cin >> N >> M;
+        UnionFind uf(N); // 创建并查集
+        for (int i = 0; i < M; i++) {
+            int a, b;
+            cin >> a >> b; // 读取一条边
+            uf.merge(a, b); // 将边的两个节点进行合并
+        }
+        // 输出所有组中最小组的大小
+        cout << uf.getMinSize() << endl;
+    }
+    return 0;
+}

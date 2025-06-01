@@ -1,0 +1,4 @@
+# --- CHMOD 测试 ---
+CHMOD 444 dir1/file1.txt  # 修改文件权限为777
+LS -l dir1  # 查看目录本身权限
+CHMOD 777 dir1/file1.txt

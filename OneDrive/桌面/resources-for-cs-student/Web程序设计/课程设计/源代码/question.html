@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>园林知识问答</title>
+    <link rel="stylesheet" href="css\question.css" />
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css\navbar.css" />
+    <link rel="stylesheet" href="css\search.css">
+    <script src="https://kit.fontawesome.com/224b934ae2.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div id="search-container" style="display: none;">
+
+        <div id="sidebar-btn">
+            <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+            <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+            <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+        </div>
+
+        <div id="search-sidebar">
+            <ul>
+                <li style="height: 50px;margin: 0;padding: 0;"></li>
+                <li onclick="hiden();"><a href="Home.html">首页</a></li>
+                <li onclick="hiden();"> <a href="gardenstyle.html">十大园林</a> </li>
+                <li onclick="hiden();"><a href="question.html">互动答题</a></li>
+                <li onclick="hiden();"><a href="photo.html">图片</a></li>
+                <li onclick="hiden();"><a href="">结束搜索</a></li>
+            </ul>
+        </div>
+
+
+        <div class="search-box">
+            <input type="text" name="" placeholder="请输入内容" class="input_text">
+            <a class="search-btn" href="#">
+                <p>搜索</p>
+            </a>
+        </div>
+    </div>
+
+    <div id="headline">
+        <h1>园林知识问答</h1>
+    </div>
+
+
+    <div id="sidebar">
+        <div class="toggle-btn" onclick="showslidebar();">
+        </div>
+        <ul>
+            <li></li>
+            <li onclick="showsearchbox();"><a href="#"> <i class="fa-solid fa-magnifying-glass"
+                        style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">搜索</p>
+                    </i></a></li>
+            <li onclick="showlist();"><a href="javascript:;"> <i class="fa-solid fa-compass"
+                        style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">页面导航</p>
+                    </i></a></li>
+            <li class="list" style="display: none;" onclick="showlist();"><a href="#container"
+                    style="text-decoration: none;"><i class="fa-regular fa-circle-dot"
+                        style="margin-top: 10px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 20px;">中国园林知识题</p>
+                    </i></a></li>
+            <li><a href="register.html"> <i class="fa-solid fa-person"
+                        style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">登录</p>
+                    </i></a></li>
+            <li><a href="index.html"> <i class="fa-solid fa-user" style="margin-top: 30px; color: rgb(95, 110, 46);">
+                        <p style="margin-left: 40px;display: inline;font-size: 25px;">注册</p>
+                    </i></a></li>
+        </ul>
+    </div>
+
+
+
+    <header>
+        <a href="#" class="logo"><img src="images\logo带字母.png" alt=""></a>
+        <ul>
+            <li><a href="Home.html"><i class="fa-solid fa-house fa-beat">首页</i></a></li>
+            <li> <a href="gardenstyle.html"><i class="fa-solid fa-globe">十大园林</i></a> </li>
+            <li><a href="question.html"><i class="fa-solid fa-file-contract">互动答题</i></a></li>
+            <li><a href="photo.html"><i class="fa-solid fa-photo-film">图片</i></a></li>
+            <li><a href="javascript:;"><i class="fa-solid fa-bars" onclick="showslidebar()">导航</i></a></li>
+        </ul>
+
+
+
+    </header>
+
+
+
+    <script>
+        var check = 0;
+        function showslidebar() {
+            if (document.getElementsByClassName('list')[0].style.display == 'block') {
+                document.getElementsByClassName('list')[0].style.display = 'none';
+                check1 = 0;
+            }
+            document.getElementById('sidebar').classList.toggle('active');
+        }
+
+        var check1 = 0;
+
+        function showlist() {
+            if (check1 == 0) {
+                document.getElementsByClassName('list')[0].style = 'display:block';
+                check1++;
+            }
+            else {
+                document.getElementsByClassName('list')[0].style = 'display:none';
+                check1--;
+            }
+        }
+
+    </script>
+
+    <section class="banner"></section>
+    <div id="container">
+
+        <div class="aside1">
+            <h1>中国古典园林知识题目</h1>
+            &nbsp; &nbsp; &nbsp; &nbsp;
+            <p style="display: inline; font-size: 22px; font-family: 华文新魏;">
+                中国古典园林艺术是指以江南私家园林和北方皇家园林为代表的中国山水园林形式。其造园手法已被西方国家所推崇和摹仿，在西方国家掀起了一股“中国园林热”。</p>
+            <br>&nbsp; &nbsp; &nbsp; &nbsp;
+            <p style="display: inline; font-size: 22px;font-family: 华文新魏;">
+                中国的造园艺术，以追求自然精神境界为最终和最高目的，从而达到“虽由人作，宛自天开”的审美旨趣。它深浸着中华文化的内蕴，是中国五千年文化史造就的艺术珍品，是一个民族内在精神品格的生动写照，是我们今天需要继承与发展的瑰丽事业。
+            </p>
+            <br>
+            <input type="button" value="开始答题" class="start" name="start" onclick="generate();Start();">
+        </div>
+
+
+        <div class="aside">
+            <h1>答题卡</h1>
+            <input type="button" value="1" class="check" name="check">
+            <input type="button" value="2" class="check" name="check">
+            <input type="button" value="3" class="check" name="check">
+            <br>
+            <input type="button" value="4" class="check" name="check">
+            <input type="button" value="5" class="check" name="check">
+            <input type="button" value="6" class="check" name="check">
+            <br>
+            <input type="button" value="7" class="check" name="check">
+            <input type="button" value="8" class="check" name="check">
+            <input type="button" value="9" class="check" name="check">
+            <br>
+            <input type="reset" value="重置"
+                style="margin:10px 60px;width: 80px;height: 40px;border-radius: 5px; background-color: #AAC8A7"
+                onclick="generate();">
+            <input type="submit" value="提交"
+                style="margin:10px 0 10px 30px;width: 80px;height: 40px;border-radius: 5px; background-color: #AAC8A7"
+                onclick="judge();">
+        </div>
+
+        <div class="formset">
+            <h1>园林风景</h1>
+            <div class="sonup">
+                <img src="images/皇家园林2.jpg" alt="" id="image">
+                <div class="btnleft"></div>
+                <div class="btnright"></div>
+            </div>
+
+            <div class="flex-item">
+                <div class="imagebox">
+                    <img src="images\皇家园林css.jpg" alt="" style=" width: auto; height: 200px;">
+                </div>
+                <div class="txtbox">
+                    <h2 style="text-align: center; font-size: 28px;"> 皇家园林 </h2>
+                    <p style="font-size: 20px;">
+                        &nbsp; &nbsp;
+                        皇家园林，在古籍里面其为"苑","囿","宫苑","园囿","御苑"，为中国园林的三种基本类型之一。
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex-item2">
+                <div class="imagebox2">
+                    <img src="images\私人园林.jpg" alt="" style=" width: auto; height: 200px;">
+                </div>
+                <div class="txtbox2">
+                    <h2 style="text-align: center; font-size: 28px;"> 私人园林 </h2>
+                    <p style="font-size: 20px;">
+                        &nbsp; &nbsp;
+                        中国古代园林，除皇家园林外，还有一类属于王公、贵族、地主、富商、士大夫等私人所有的园林，称为私家园林。
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex-item3">
+                <div class="imagebox3">
+                    <img src="images\寺庙园林.jpg" alt="" style="width: auto; height: 200px;">
+                </div>
+                <div class="txtbox3">
+                    <h2 style="text-align: center;font-size: 28px;"> 寺庙园林 </h2>
+                    <p style="font-size: 20px;">
+                        &nbsp; &nbsp;
+                        寺庙园林是寺庙建筑、宗教景物、人工山水和自然山水的结合体，是中国古典园林的代表之一。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="formset" style="display: none;">
+            <div class="imgbox">
+                <img src="images\荣誉证书.png" alt="">
+            </div>
+            <div class="rootstart">
+                <p id="root" style="font-size: 100px ; font-family: 华文行楷;"></p>
+            </div>
+        </div>
+
+        <form action="question.php" class="question">
+            <h4>1、苏州现存古典园林中建园历史最早的是____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 拙政园</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 沧浪亭</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 狮子林</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 留园</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>2、在园林建筑中起到“点景”与“引景”的作用是____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 楼阁亭</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 廊</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>亭</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 桥</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>3、花木对园林山石景观起衬托作用，又往往和园主追求的精神境界有关。如兰花象征____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 人品清逸</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>荣华富贵</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 幽居隐士</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 高官厚禄</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>4、广东四大园林中保存原貌最好的古典园林是____</h4>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 余荫山房</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 清晖园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 梁园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 可园</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>5、____被认为是苏州古典园林中以少胜多的典范</h4>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 网师园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 留园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 拙政园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 环秀山庄</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>6、站在杭州白堤垂柳下观赏远景时，西湖美景因为有倒挂的柳丝作为装饰而生动起来，这就是造园手法中的____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 抑景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>框景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 借景</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 添景</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>7、杭州花港观鱼东大门的雪松，是____的范例</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 添景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>对景</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 抑景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 借</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>8、中国古典园林的构造手法中，____可以突破视觉的空间限制，给予人们更大的视野和想象</h4>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 借景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>对景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 夹景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 添景</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>9、以下对中国古代园林的游览方法叙述不确切的是</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 游览古代园林讲究“游”与“停”结合</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>路、径、廊以“游”为主，因此要快速行走，亭、榭、厅等重要建筑以“停”为主，大可驻
+                足停留观赏</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 从心理学的角度来说，园林中的游览路线有两条，一条是登山越水的路或径，另一条是进廊游览</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 一般情况下，年轻好动的游客喜欢穿越小桥流水的路或径;年纪大的游客则偏爱进廊游览</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>10、下列园林中，运用了“藏而不露”和“缩龙成寸”的手法，将园林造成园中有园、景中有景、幽深广阔的绝妙佳境的是</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 可园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>梁园</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 余荫山房</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>清晖园</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>11、平面常为长方形，一般多开敞或设窗扇，以供人们游憩眺望的园林建筑是____</h4>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 榭</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>轩</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 亭</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>舫</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>12、____的“浮翠阁”的匾额题字，来源于苏轼诗中的“三峰已过天浮翠”</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 苏州留园</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>苏州拙政园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 扬州个园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>无锡寄畅园</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>13、自然式园林着意表现自然美，对花木有一定的选择标准，分别是____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 形状 色美 味香</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>形状 色美 姿美</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 姿美 色美 味香</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>姿美 形状 味香</p>
+        </form>
+
+
+        <form action="question.php" class="question">
+            <h4>14、由甲观赏点观赏乙观赏点，从乙观赏点观赏甲观赏点的方法叫____</h4>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 对景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>夹景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 漏景</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>借景</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>15、“造园者未见此山，正如学诗者不知李杜”中的“此山”是指____的假山。</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 苏州拙政园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>苏州沧浪亭</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p> 苏州环秀山庄</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>上海豫园</p>
+        </form>
+
+
+        <form action="question.php" class="question">
+            <h4>16、江南三大奇石之一的“冠云峰”在____内</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 苏州拙政园</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>苏州留园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>杭州竹素园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>上海园</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>17、被前人赞为“可美人间福地，园夸天上仙宫”的园林是____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 寄畅园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>苏州留园</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>可园</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>苏州拙政园</p>
+        </form>
+
+
+        <form action="question.php" class="question">
+            <h4>18、中国园林发展中的转折点是____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 秦汉时期</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>魏晋南北朝时期</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>唐宋时期</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>明清时期</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>19、中国古典林的成熟阶段是在____</h4>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 明清时期</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>秦汉时期</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>魏晋南北朝时期</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>唐宋时期</p>
+        </form>
+
+        <form action="question.php" class="question">
+            <h4>20、____是园林中的二类建筑，属较高层的建筑。</h4>
+            <br>
+
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p> 厅堂</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>馆斋</p>
+            <br>
+            <input type="radio" value="1" name="1" ondblclick="warp();">
+            <p>楼阁</p>
+            <br>
+            <input type="radio" value="0" name="1" ondblclick="warp();">
+            <p>榭</p>
+        </form>
+
+    </div>
+
+    <div id="footer">
+        <p style="font-size:larger;text-align: center;"> <i> @WEB前端开发课程版权</i></p>
+        <p style="font-size:larger;text-align: center;">2020-2025</p>
+        <div class="bottom">
+            <a href="#header">返回顶部</a>
+        </div>
+    </div>
+    <script type="text/javascript" src="JS\question.js"> </script>
+</body>
+
+</html>

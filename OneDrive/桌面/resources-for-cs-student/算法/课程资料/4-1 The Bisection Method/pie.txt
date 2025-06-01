@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<math.h>
+double PI = acos(-1.0);  //3.141592653589793
+#define eps 1e-5        // small eps, TLE; big eps, WA
+double area[10010];
+int n,m;
+
+bool check(double mid){ 
+    int sum = 0;
+    for(int i=0;i<n;i++) // separate each pie by size mid and count the total number
+        sum += (int)(area[i] / mid);
+    if(sum >= m) return true;  // enough
+    else         return false; // not enough
+}
+
+int main(){
+    int T; scanf("%d",&T);
+    while(T--){
+        scanf("%d%d",&n,&m);   m++;
+        double maxx = 0;
+        for(int i=0;i<n;i++){
+            int r; scanf("%d",&r);
+            area[i] = PI*r*r;
+            if(maxx < area[i]) maxx = area[i]; // the max size
+        }
+        double left = 0, right = maxx;  
+        for(int i = 0; i<100; i++){     // small i, WA
+      //while((right-left) > eps)   {   // or using while
+            double mid = left+(right-left)/2;
+            if(check(mid))   left  = mid;  // Everyone can get the size mid pie
+            else             right = mid;  // not enough
+        }
+        printf("%.4f\n",left); // right also works, since right-left < eps
+    }
+    return 0;
+}

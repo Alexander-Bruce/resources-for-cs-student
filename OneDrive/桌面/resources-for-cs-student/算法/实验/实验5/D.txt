@@ -1,0 +1,58 @@
+//贪心算法中的会议室安排问题,选择尽可能多的不冲突的活动
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// 定义一个类来存储每个活动的开始时间和结束时间
+class Program {
+public:
+    int begin_time;
+    int end_time;
+    Program() {}; // 默认构造函数
+};
+
+// 自定义比较函数，用于排序，按照活动的结束时间升序排序
+bool cmp(Program p1, Program p2) {
+    return p1.end_time < p2.end_time;
+}
+
+int main()
+{
+    int n; // 活动数量
+    while (cin >> n)
+    {
+        vector<Program> Programs(n); // 存储所有活动
+        for (int i = 0; i < n; i++) // 输入每个活动的开始和结束时间
+            cin >> Programs[i].begin_time >> Programs[i].end_time;
+
+        // 对活动按结束时间进行排序
+        sort(Programs.begin(), Programs.end(), cmp);
+
+        int timeline = Programs[0].end_time; // 初始化时间轴为第一个活动的结束时间
+        int timeindex = 0; // 记录当前考虑的活动索引
+        int count = 1; // 记录选择的活动数量，初始化为1，因为至少选择了第一个活动
+
+        // 贪心算法选择活动
+        while (timeindex < n && timeline < Programs[n - 1].end_time) {
+            for (int i = timeindex; i < n; i++) {
+                // 寻找下一个不与当前活动冲突的活动
+                if (Programs[i].begin_time >= timeline) {
+                    timeline = Programs[i].end_time; // 更新时间轴为新选择的活动的结束时间
+                    timeindex = i; // 更新索引
+                    count++; // 增加选择的活动数量
+                    break;
+                }
+                // 如果到达最后一个活动还没有找到合适的，退出循环
+                if (i == n - 1) {
+                    timeindex = n;
+                }
+            }
+        }
+        // 输出选择的活动数量
+        cout << count <<endl;
+    }
+
+    return 0;
+}

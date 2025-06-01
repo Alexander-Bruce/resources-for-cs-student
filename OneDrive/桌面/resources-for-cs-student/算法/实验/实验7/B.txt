@@ -1,0 +1,77 @@
+//kmp
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+// 计算 next 数组，也称为部分匹配表
+void computeNextArray(char* pat, int M, int* next) {
+    int len = 0; // length of the previous longest prefix suffix
+    next[0] = 0; // next[0] 总是为 0
+
+    int i = 1;
+    while (i < M) {
+        if (pat[i] == pat[len]) {
+            len++;
+            next[i] = len;
+            i++;
+        } else {
+            if (len != 0) {
+                // 不匹配时，回退到之前的匹配位置
+                len = next[len - 1];
+            } else {
+                // 如果 len 为 0，则没有匹配，设置 next[i] 为 0，并继续
+                next[i] = 0;
+                i++;
+            }
+        }
+    }
+}
+
+// KMP 搜索算法
+int KMPSearch(char* pat, char* txt) {
+    int M = strlen(pat);
+    int N = strlen(txt);
+
+    // 动态分配 next 数组
+    int* next = (int*)malloc(M * sizeof(int));
+    computeNextArray(pat, M, next);
+
+    int i = 0; // 文本的当前位置
+    int j = 0; // 模式的当前位置
+    int count = 0; // 匹配次数计数器
+    while (i < N) {
+        if (pat[j] == txt[i]) {
+            i++;
+            j++;
+        }
+
+        // 完全匹配模式串
+        if (j == M) {
+            count++; // 匹配次数增加
+            j = next[j - 1]; // 根据 next 数组回退
+        } else if (i < N && pat[j] != txt[i]) {
+            if (j != 0) {
+                j = next[j - 1]; // 根据 next 数组回退
+            } else {
+                i++; // 模式串位置为 0，文本串位置前移
+            }
+        }
+    }
+
+    free(next); // 释放 next 数组内存
+    return count; // 返回匹配次数
+}
+
+int main() {
+    char s1[1000001]; // 主文本
+    char s2[1000001]; // 模式文本
+
+    scanf("%s", s1); // 输入主文本
+    scanf("%s", s2); // 输入模式文本
+
+    int result = KMPSearch(s2, s1); // 执行 KMP 搜索
+
+    printf("%d\n", result); // 输出匹配次数
+
+    return 0;
+}

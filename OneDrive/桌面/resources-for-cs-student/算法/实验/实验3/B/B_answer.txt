@@ -1,0 +1,40 @@
+	#include <iostream>
+#include <vector>
+#include <algorithm>
+ 
+using namespace std;
+ 
+int main() {
+    long long int times;
+    cin >> times;
+    vector<long long int> result;
+ 
+    for (long long int i = 0; i < times; i++) {
+        long long int number;
+        cin >> number;
+ 
+        vector<long long int> arr(number);
+        for (long long int j = 0; j < number; j++) {
+            cin >> arr[j];
+        }
+ 
+        long long int maxSum = arr[0];
+        long long int currentSum = arr[0];
+ 
+        for (long long int j = 1; j < number; j++) {
+            currentSum = max(arr[j], currentSum + arr[j]);
+            maxSum = max(maxSum, currentSum);
+        }
+ 
+        result.push_back(maxSum);
+    }
+ 
+    for (long long int i = 0; i < times; i++) {
+        if (i != times - 1)
+            cout << result[i] << endl;
+        else
+            cout << result[i];
+    }
+ 
+    return 0;
+}

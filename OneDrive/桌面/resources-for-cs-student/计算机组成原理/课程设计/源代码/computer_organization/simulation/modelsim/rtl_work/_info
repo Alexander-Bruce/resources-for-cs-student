@@ -1,0 +1,446 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\coop\project design\PCO_complex_stu_2023\simulation\modelsim
+valu
+Z1 I<c@[F[iR8NDb__^MZn>Mi2
+Z2 V;k@gjZb;MAPjRKDXXZRIz3
+Z3 dE:\coop\project design\PCO_complex_stu_2023\simulation\modelsim
+Z4 w1703653452
+Z5 8E:/coop/project design/PCO_complex_stu_2023/rtl/alu.v
+Z6 FE:/coop/project design/PCO_complex_stu_2023/rtl/alu.v
+L0 2
+Z7 OV;L;10.1e;51
+r1
+31
+Z8 o-vlog01compat -work work -O0
+Z9 !s92 -vlog01compat -work work {+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl} -O0
+Z10 !s100 fQ[@4maYRBMf9kgS1eU>L3
+Z11 !s108 1705027196.151000
+Z12 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/alu.v|
+Z13 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/alu.v|
+!i10b 1
+!s85 0
+!s101 -O0
+var
+Z14 Iehb7_>RUm^OL9`VhBzR4Z1
+Z15 V9o44f1eRz@O7`49^5hNCC2
+R3
+Z16 w1703040512
+Z17 8E:/coop/project design/PCO_complex_stu_2023/rtl/ar.v
+Z18 FE:/coop/project design/PCO_complex_stu_2023/rtl/ar.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z19 !s100 lX_;^XVe_D3>jkzmR]DQj2
+Z20 !s108 1705027196.062000
+Z21 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/ar.v|
+Z22 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/ar.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vclk_div
+Z23 IAgIZ27fQRo3=IPkN:D]P72
+Z24 VBL^JGUH?:P=jZGFZ1=d1L0
+R3
+Z25 w1698587042
+Z26 8E:/coop/project design/PCO_complex_stu_2023/rtl/clk_div.v
+Z27 FE:/coop/project design/PCO_complex_stu_2023/rtl/clk_div.v
+L0 5
+R7
+r1
+31
+R8
+R9
+Z28 !s100 VFBSGI7^MT>kXzZV6RcYK3
+Z29 !s108 1705027196.317000
+Z30 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/clk_div.v|
+Z31 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/clk_div.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vcontrol
+Z32 IaEW0aS0K7;X:?YSLBFbLK1
+Z33 V;2FjKG95lo<a=BGNmHGli1
+R3
+Z34 w1703658674
+Z35 8E:/coop/project design/PCO_complex_stu_2023/rtl/control.v
+Z36 FE:/coop/project design/PCO_complex_stu_2023/rtl/control.v
+L0 15
+R7
+r1
+31
+R8
+R9
+Z37 !s100 NhRb><ghLEoQmGze`40cW0
+Z38 !s108 1705027195.976000
+Z39 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/control.v|
+Z40 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/control.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vcpu
+Z41 IbSFClbQS2lTSI7n[^D5NY3
+Z42 VM=E`cl;[0B@k<4KOGjKbJ2
+R3
+Z43 w1703652470
+Z44 8E:/coop/project design/PCO_complex_stu_2023/rtl/cpu.v
+Z45 FE:/coop/project design/PCO_complex_stu_2023/rtl/cpu.v
+L0 5
+R7
+r1
+31
+R8
+R9
+Z46 !s100 B`Z8[?5nehnlm4CjTcQ;a3
+Z47 !s108 1705027195.893000
+Z48 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/cpu.v|
+Z49 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/cpu.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vCPU_Controller
+Z50 I2dWkZ8RGLH1mCD7:nBAmE3
+Z51 VgJP;oog[KFk?ZRZKj5F3P2
+R3
+Z52 w1698587044
+Z53 8E:/coop/project design/PCO_complex_stu_2023/rtl/CPU_Controller.v
+Z54 FE:/coop/project design/PCO_complex_stu_2023/rtl/CPU_Controller.v
+L0 4
+R7
+r1
+31
+R8
+R9
+Z55 n@c@p@u_@controller
+Z56 !s100 >hN;_DO3L;dZ<9RC^_iJ90
+Z57 !s108 1705027196.401000
+Z58 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/CPU_Controller.v|
+Z59 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/CPU_Controller.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vdr
+Z60 I<<;0`K9H8=I>C97f09a_g1
+Z61 VCVY5c:DI4WF`C5FNFT<UO2
+R3
+Z62 w1703039274
+Z63 8E:/coop/project design/PCO_complex_stu_2023/rtl/dr.v
+Z64 FE:/coop/project design/PCO_complex_stu_2023/rtl/dr.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z65 !s100 QQ`m3=lBmF64EPf?UJ>dl3
+Z66 !s108 1705027195.808000
+Z67 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/dr.v|
+Z68 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/dr.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vir
+Z69 ImflzkdY3QjS=bmUNlUh`V0
+Z70 VT6Ro5YGOz[EPI]]@b2oOb3
+R3
+Z71 w1703130076
+Z72 8E:/coop/project design/PCO_complex_stu_2023/rtl/ir.v
+Z73 FE:/coop/project design/PCO_complex_stu_2023/rtl/ir.v
+L0 3
+R7
+r1
+31
+R8
+R9
+Z74 !s100 @IKhL_I@X;K:Mcfif8oj33
+Z75 !s108 1705027195.724000
+Z76 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/ir.v|
+Z77 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/ir.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vlight_show
+Z78 IOgUAk5XQm<QMYN5d1@m_71
+Z79 V8k?LdHL4i^CfL`?^aWTMJ0
+R3
+Z80 w1699860436
+Z81 8E:/coop/project design/PCO_complex_stu_2023/rtl/light_show.v
+Z82 FE:/coop/project design/PCO_complex_stu_2023/rtl/light_show.v
+L0 13
+R7
+r1
+31
+R8
+R9
+Z83 !s100 eCIeRi;U>KEJOM`k3]BfV0
+Z84 !s108 1705027196.233000
+Z85 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/light_show.v|
+Z86 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/light_show.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vpc
+Z87 IM48L7Io>^X]N1:aLAUPPk3
+Z88 VmRJ@8@k8LF4@AeEETcN4T3
+R3
+Z89 w1703119684
+Z90 8E:/coop/project design/PCO_complex_stu_2023/rtl/pc.v
+Z91 FE:/coop/project design/PCO_complex_stu_2023/rtl/pc.v
+L0 3
+R7
+r1
+31
+R8
+R9
+Z92 !s100 WIAiXS?5baAk8>f_C0PVO1
+Z93 !s108 1705027195.638000
+Z94 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/pc.v|
+Z95 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/pc.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vqtsj
+Z96 Iff_a1DW8M>B?GzUlh3f:01
+Z97 VL__P<B;7Mo?8K9;LcUd[61
+R3
+Z98 w1703033694
+Z99 8E:/coop/project design/PCO_complex_stu_2023/rtl/qtsj.v
+Z100 FE:/coop/project design/PCO_complex_stu_2023/rtl/qtsj.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z101 !s100 Gfe]A6aOAS@mAUo66TFz03
+Z102 !s108 1705027196.485000
+Z103 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/qtsj.v|
+Z104 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/qtsj.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vr0
+Z105 I@HiloL_hdoWN8]55NE?aj2
+Z106 VZI5G29LJ=aBdJU9jbFQUZ2
+R3
+Z107 w1703074592
+Z108 8E:/coop/project design/PCO_complex_stu_2023/rtl/r0.v
+Z109 FE:/coop/project design/PCO_complex_stu_2023/rtl/r0.v
+L0 2
+R7
+r1
+31
+R8
+Z110 !s100 nA`bMkFi;JolWATWiQ=aR0
+Z111 !s108 1705027195.112000
+Z112 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/r0.v|
+Z113 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/r0.v|
+R9
+!i10b 1
+!s85 0
+!s101 -O0
+vr1
+Z114 ITHmo59Mm?l@:HfE?bN1bD3
+Z115 VQQl<Ra=cSBSk5m2F^]=le1
+R3
+Z116 w1703074610
+Z117 8E:/coop/project design/PCO_complex_stu_2023/rtl/r1.v
+Z118 FE:/coop/project design/PCO_complex_stu_2023/rtl/r1.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z119 !s100 4C<e?E<CzFV[O2^Z`WXgY0
+Z120 !s108 1705027195.212000
+Z121 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/r1.v|
+Z122 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/r1.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vr2
+Z123 IHOdVW8cAPB:FgWPS2J[3<0
+Z124 V3Klo>8zmDnMJWabI`Va0z2
+R3
+Z125 w1703074612
+Z126 8E:/coop/project design/PCO_complex_stu_2023/rtl/r2.v
+Z127 FE:/coop/project design/PCO_complex_stu_2023/rtl/r2.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z128 !s100 To:<R0WGVoT7_:IIbP^Kf0
+Z129 !s108 1705027196.654000
+Z130 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/r2.v|
+Z131 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/r2.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vr3
+Z132 IfZ17eo6;K`NZiaIX66[8:0
+Z133 V_KhGA;S=ajcSj:bIL9<mM2
+R3
+R125
+Z134 8E:/coop/project design/PCO_complex_stu_2023/rtl/r3.v
+Z135 FE:/coop/project design/PCO_complex_stu_2023/rtl/r3.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z136 !s100 g9D3MSgZ`PN=;eom5NHUd3
+Z137 !s108 1705027196.741000
+Z138 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/r3.v|
+Z139 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/r3.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vram
+Z140 IFX8nYM:c<ChY_LFQERY_n0
+Z141 VJBb5h44ne>;`:Z8@MUeVS3
+R3
+Z142 w1703640740
+Z143 8E:/coop/project design/PCO_complex_stu_2023/rtl/ram.v
+Z144 FE:/coop/project design/PCO_complex_stu_2023/rtl/ram.v
+L0 14
+R7
+r1
+31
+R8
+R9
+Z145 !s100 YDGDK[C=ngU?JNh`dG6?V1
+Z146 !s108 1705027195.297000
+Z147 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/ram.v|
+Z148 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/ram.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vtop
+Z149 I1LMfVL@aHSI@_Y`NSG67X3
+Z150 V3i052mjP`>I1M>foQ1a7[3
+R3
+Z151 w1703659318
+Z152 8E:/coop/project design/PCO_complex_stu_2023/rtl/top.v
+Z153 FE:/coop/project design/PCO_complex_stu_2023/rtl/top.v
+L0 5
+R7
+r1
+31
+R8
+R9
+Z154 !s100 ^<8b]1Ia_@AC<O1]9kATf3
+Z155 !s108 1705027195.550000
+Z156 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/top.v|
+Z157 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/top.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vtop_vlg_tst
+!i10b 1
+!s100 T=2ig1Og40OfAoH]1;PS73
+Ij7h>S_B3LhK>WSBmP2V@J2
+VWH`X8iAJ@;Z6_Z>8HHbjI2
+R3
+w1705026725
+8E:/coop/project design/PCO_complex_stu_2023/simulation/modelsim/top.vt
+FE:/coop/project design/PCO_complex_stu_2023/simulation/modelsim/top.vt
+L0 29
+R7
+r1
+!s85 0
+31
+!s108 1705027196.912000
+!s107 E:/coop/project design/PCO_complex_stu_2023/simulation/modelsim/top.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/simulation/modelsim|E:/coop/project design/PCO_complex_stu_2023/simulation/modelsim/top.vt|
+!s101 -O0
+R8
+!s92 -vlog01compat -work work {+incdir+E:/coop/project design/PCO_complex_stu_2023/simulation/modelsim} -O0
+vtr
+Z158 I9WITBkCPbc=P46D`Da9V02
+Z159 Vg<II86?Lk9I?]mBFLT6hc1
+R3
+R89
+Z160 8E:/coop/project design/PCO_complex_stu_2023/rtl/tr.v
+Z161 FE:/coop/project design/PCO_complex_stu_2023/rtl/tr.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z162 !s100 ndU0G?OLK0P<lc@VaKOJ21
+Z163 !s108 1705027195.464000
+Z164 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/tr.v|
+Z165 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/tr.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vx
+Z166 IKJonLzAOb1c=kRj1NNEe51
+Z167 VACmz^Xboj2zje:I=[[lSX1
+R3
+Z168 w1703074640
+Z169 8E:/coop/project design/PCO_complex_stu_2023/rtl/x.v
+Z170 FE:/coop/project design/PCO_complex_stu_2023/rtl/x.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z171 !s100 ?Do:0<2015@YJjm2;Qg?_1
+Z172 !s108 1705027196.569000
+Z173 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/x.v|
+Z174 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/x.v|
+!i10b 1
+!s85 0
+!s101 -O0
+vy
+Z175 I7gA>=Pd6e1d6eA18dNi0i2
+Z176 VK50RjLfMTK7=H^Pk[<KXQ2
+R3
+R168
+Z177 8E:/coop/project design/PCO_complex_stu_2023/rtl/y.v
+Z178 FE:/coop/project design/PCO_complex_stu_2023/rtl/y.v
+L0 2
+R7
+r1
+31
+R8
+R9
+!i10b 1
+Z179 !s100 5cm58TEcF5R_20OPYzNk90
+!s85 0
+Z180 !s108 1705027196.826000
+Z181 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/y.v|
+Z182 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/y.v|
+!s101 -O0
+vz
+Z183 I6BEFOk:nFd?CgEfb]fXVY0
+Z184 VWd`6;6g:3kR^0J9lfhOKH2
+R3
+Z185 w1703043522
+Z186 8E:/coop/project design/PCO_complex_stu_2023/rtl/z.v
+Z187 FE:/coop/project design/PCO_complex_stu_2023/rtl/z.v
+L0 2
+R7
+r1
+31
+R8
+R9
+Z188 !s100 5^mVJ`Pd5DMfYVf`Uk`b:0
+Z189 !s108 1705027195.379000
+Z190 !s107 E:/coop/project design/PCO_complex_stu_2023/rtl/z.v|
+Z191 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+E:/coop/project design/PCO_complex_stu_2023/rtl|E:/coop/project design/PCO_complex_stu_2023/rtl/z.v|
+!i10b 1
+!s85 0
+!s101 -O0

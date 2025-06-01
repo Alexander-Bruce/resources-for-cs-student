@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<entry xml:base="http://community.chocolatey.org/api/v2/" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://www.w3.org/2005/Atom">
+  <id>http://community.chocolatey.org/api/v2/Packages(Id='mingw',Version='13.2.0')</id>
+  <title type="text">mingw</title>
+  <summary type="text">GCC for Windows 64 &amp; 32 bits.</summary>
+  <updated>2024-10-30T21:42:45Z</updated>
+  <author>
+    <name>The MinGW-w64 Project</name>
+  </author>
+  <link rel="edit-media" title="V2FeedPackage" href="Packages(Id='mingw',Version='13.2.0')/$value" />
+  <link rel="edit" title="V2FeedPackage" href="Packages(Id='mingw',Version='13.2.0')" />
+  <category term="CCR.Website.V2FeedPackage" scheme="http://schemas.microsoft.com/ado/2007/08/dataservices/scheme" />
+  <content type="application/zip" src="https://community.chocolatey.org/api/v2/package/mingw/13.2.0" />
+  <m:properties xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices">
+    <d:Version>13.2.0</d:Version>
+    <d:Title>MinGW-w64</d:Title>
+    <d:Description>Mingw-w64 is an advancement of the original mingw.org project, created to support the GCC compiler on Windows systems. It has forked it in 2007 in order to provide support for 64 bits and new APIs. It has since then gained widespread use and distribution.</d:Description>
+    <d:Tags>compiler gcc mingw mingw-w64</d:Tags>
+    <d:Copyright></d:Copyright>
+    <d:Created m:type="Edm.DateTime">2023-10-07T18:37:37.493</d:Created>
+    <d:Dependencies></d:Dependencies>
+    <d:DownloadCount m:type="Edm.Int32">1113232</d:DownloadCount>
+    <d:VersionDownloadCount m:type="Edm.Int32">290937</d:VersionDownloadCount>
+    <d:GalleryDetailsUrl>https://community.chocolatey.org/packages/mingw/13.2.0</d:GalleryDetailsUrl>
+    <d:ReportAbuseUrl>https://community.chocolatey.org/package/ReportAbuse/mingw/13.2.0</d:ReportAbuseUrl>
+    <d:IconUrl></d:IconUrl>
+    <d:IsLatestVersion m:type="Edm.Boolean">true</d:IsLatestVersion>
+    <d:IsAbsoluteLatestVersion m:type="Edm.Boolean">true</d:IsAbsoluteLatestVersion>
+    <d:IsPrerelease m:type="Edm.Boolean">false</d:IsPrerelease>
+    <d:Language></d:Language>
+    <d:Published m:type="Edm.DateTime">2023-10-07T18:37:37.493</d:Published>
+    <d:LicenseUrl></d:LicenseUrl>
+    <d:RequireLicenseAcceptance m:type="Edm.Boolean">false</d:RequireLicenseAcceptance>
+    <d:PackageHash>ORgZ1jPrbuQdltDAAO3tzkJuP8WhA9+E4uQLCltrsTbpJ/UV79rtIBtebjLusBcCMG7F1tm0GMljwOeXrtVQvg==</d:PackageHash>
+    <d:PackageHashAlgorithm>SHA512</d:PackageHashAlgorithm>
+    <d:PackageSize m:type="Edm.Int64">6562</d:PackageSize>
+    <d:ProjectUrl>http://mingw-w64.org/</d:ProjectUrl>
+    <d:ReleaseNotes></d:ReleaseNotes>
+    <d:ProjectSourceUrl></d:ProjectSourceUrl>
+    <d:PackageSourceUrl>https://bitbucket.org/xoviat/chocolatey-packages</d:PackageSourceUrl>
+    <d:DocsUrl></d:DocsUrl>
+    <d:MailingListUrl></d:MailingListUrl>
+    <d:BugTrackerUrl></d:BugTrackerUrl>
+    <d:IsApproved m:type="Edm.Boolean">true</d:IsApproved>
+    <d:PackageStatus>Approved</d:PackageStatus>
+    <d:PackageSubmittedStatus>Ready</d:PackageSubmittedStatus>
+    <d:PackageTestResultUrl>https://gist.github.com/choco-bot/eb45f5624f2075bd06465fc39467f7d2</d:PackageTestResultUrl>
+    <d:PackageTestResultStatus>Passing</d:PackageTestResultStatus>
+    <d:PackageTestResultStatusDate m:type="Edm.DateTime">2024-10-30T21:42:44.8827238Z</d:PackageTestResultStatusDate>
+    <d:PackageValidationResultStatus>Passing</d:PackageValidationResultStatus>
+    <d:PackageValidationResultDate m:type="Edm.DateTime">2023-10-07T19:13:06.46</d:PackageValidationResultDate>
+    <d:PackageCleanupResultDate m:type="Edm.DateTime" m:null="true"></d:PackageCleanupResultDate>
+    <d:PackageReviewedDate m:type="Edm.DateTime">2024-10-30T21:42:45.0577793Z</d:PackageReviewedDate>
+    <d:PackageApprovedDate m:type="Edm.DateTime">2024-10-30T21:42:45.0577793Z</d:PackageApprovedDate>
+    <d:PackageReviewer>Windos</d:PackageReviewer>
+    <d:IsDownloadCacheAvailable m:type="Edm.Boolean">true</d:IsDownloadCacheAvailable>
+    <d:DownloadCacheStatus>Available</d:DownloadCacheStatus>
+    <d:DownloadCacheDate m:type="Edm.DateTime">2024-05-19T09:04:48.897</d:DownloadCacheDate>
+    <d:DownloadCache>https://github.com/niXman/mingw-builds-binaries/releases/download/13.2.0-rt_v11-rev0/x86_64-13.2.0-release-posix-seh-ucrt-rt_v11-rev0.7z^x64/x86_64-13.2.0-release-posix-seh-ucrt-rt_v11-rev0.7z^8B4F69767DA5F28BB83CDDAA7E928CFAF7C64E595CCF63BEAC7690FE229BF9E5DC40875CC2AC08C303DDF4902C1AC994B643BDB2A009DA036E45F476DA55CA7B|https://github.com/niXman/mingw-builds-binaries/releases/download/13.2.0-rt_v11-rev0/i686-13.2.0-release-posix-dwarf-ucrt-rt_v11-rev0.7z^x86/i686-13.2.0-release-posix-dwarf-ucrt-rt_v11-rev0.7z^77639B8E51E164DF8828312D2190B8546C173A21CE531DABA6B25AB2FBDF57A9A2CCAAF10090C5A4EEA8884D2004A55A7F9F6DF2C17FBF2DE55E43EF4C8EBCD3</d:DownloadCache>
+    <d:PackageScanStatus>Exempted</d:PackageScanStatus>
+    <d:PackageScanResultDate m:type="Edm.DateTime">2023-10-08T08:43:50.907</d:PackageScanResultDate>
+    <d:PackageScanFlagResult>Warning</d:PackageScanFlagResult>
+  </m:properties>
+</entry>

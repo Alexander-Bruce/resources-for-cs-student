@@ -1,0 +1,29 @@
+#include<stdio.h>
+#include<math.h>
+
+double y;
+double left, right, mid;
+
+double f(double x){
+	return 5*pow(x,5.0)+4*pow(x,4.0)+3*pow(x,3.0)+2*pow(x,2.0)+1;
+}
+
+int main(){
+	scanf("%lf",&y);
+	if(f(0)<=y && y<=f(100)){
+		left=0.0;
+		right=100.0;
+		while(right-left>1e-7){
+			mid = (left+right)/2;
+			double ans = f(mid);
+			if(ans>y)
+				right = mid;
+			else
+				left = mid;
+		}
+		printf("%.4f",left);
+	}
+	else printf("no solution");
+		
+	return 0;
+} 

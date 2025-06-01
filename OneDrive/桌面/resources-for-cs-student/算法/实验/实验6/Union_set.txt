@@ -1,0 +1,65 @@
+//Union_set template
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+class UnionFind {
+private:
+    vector<int> parent; // 存储每个元素的父节点
+    vector<int> rank;   // 存储每个根节点对应的树的深度（秩）
+
+public:
+    // 构造函数，n为并查集的大小
+    UnionFind(int n) {
+        parent.resize(n);
+        rank.resize(n, 0); // 初始化秩为0
+        for (int i = 0; i < n; i++) {
+            parent[i] = i; // 最开始，每个元素的父节点是它自己
+        }
+    }
+
+    // 查找x的根节点（带路径压缩）
+    int find(int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent[x]); // 路径压缩
+        }
+        return parent[x];
+    }
+
+    // 合并x和y所在的集合（按秩合并）
+    void unionSets(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) {
+            if (rank[rootX] > rank[rootY]) {
+                parent[rootY] = rootX; // 将树的深度较小的根节点连接到深度较大的根节点上
+            } else if (rank[rootX] < rank[rootY]) {
+                parent[rootX] = rootY;
+            } else {
+                parent[rootY] = rootX;
+                rank[rootX]++; // 如果深度相同，任选一个作为根，并增加其深度
+            }
+        }
+    }
+
+    // 判断x和y是否属于同一个集合
+    bool connected(int x, int y) {
+        return find(x) == find(y);
+    }
+};
+
+int main() {
+    int n = 10; // 假设有10个元素
+    UnionFind uf(n);
+
+    // 合并一些集合
+    uf.unionSets(0, 1);
+    uf.unionSets(2, 3);
+    uf.unionSets(1, 2);
+
+    // 检查元素是否属于同一集合
+    cout << "Is 0 connected to 3? " << (uf.connected(0, 3) ? "Yes" : "No") << endl;
+
+    return 0;
+}

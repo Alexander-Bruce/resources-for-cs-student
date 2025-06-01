@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MyBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bomb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="form.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="myplane.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="reference.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="speed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="widget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Bullet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bomb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="form.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="myplane.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="reference.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="speed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="widget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    
+    
+    <CustomBuild Include="debug\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="release\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="form.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="reference.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="widget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="resource\sound\I'll Be There - Walk off the Earth.mp3">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\I'll Be There - Walk off the Earth.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\again.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\background.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\bomb.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\bomb_supply.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\bullet.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\bullet1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\bullet2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\bullet_supply.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\button.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\enemy1_down.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy1_down1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy1_down2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy1_down3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy1_down4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\enemy2_down.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy2_down1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy2_down2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy2_down3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy2_down4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy2_hit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\enemy3_down.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_down1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_down2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_down3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_down4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_down5.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_down6.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\enemy3_flying.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_hit.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_n1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\enemy3_n2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\game_music.ogg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\gameover.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\get_bomb.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\get_bullet.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\life.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\me1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\me2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\me_destroy_1.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\me_destroy_2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\me_destroy_3.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\me_destroy_4.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\me_down.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\pause_nor.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\pause_pressed.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="resouce.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="resource\images\resume_nor.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\images\resume_pressed.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\supply.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\upgrade.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="resource\sound\use_bomb.wav">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>

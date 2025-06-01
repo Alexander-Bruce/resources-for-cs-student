@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="backend.dao.MessageDao">
+    <select id="getMessageList" resultType="backend.model.Message">
+        SELECT *
+        FROM message
+    </select>
+
+    <insert id="insertMessage" parameterType="backend.model.Message">
+        INSERT INTO message(userId, title, content)
+        VALUES (#{userId}, #{title}, #{content})
+    </insert>
+</mapper>

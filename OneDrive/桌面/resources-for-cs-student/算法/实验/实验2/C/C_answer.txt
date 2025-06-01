@@ -1,0 +1,91 @@
+	import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Scanner;
+ 
+public class Main {
+    private static int count = 0;
+    public static void main(String [] args){
+        Scanner In = new Scanner(System.in);
+        int [][] Matrix = new int[11][11];
+        ClearMatrix(0, 0, 10,  Matrix);
+        while(In.hasNext()) {
+            int n = Integer.parseInt(In.nextLine());
+            GetQueensPuzzleNumber(n, Matrix);
+            System.out.println(count);
+        }
+    }
+    public static void ClearMatrix(int Column, int Row, int n, int [][]Matrix){
+        for(int i = Column; i <= n; i++)
+            for(int j = Row; j <= n; j++)
+                Matrix[i][j] = 0;
+    }
+    public static void PrintMatrix(int n, int [][]Matrix){
+        for(int i = 1; i <= n; i++){
+            for(int j = 1; j <= n; j++)
+                System.out.print(Matrix[i][j] + " ");
+            System.out.println();
+        }
+        System.out.println();
+    }
+    public static int GetQueensPuzzleNumber(int n, int [][]Matrix){
+        count = 0;
+        for(int Row = 1; Row <= n; Row++)
+        {
+            Matrix[Row][1] = 1;
+            //PrintMatrix(n, Matrix);
+            QueensPlaceJudge(n, Matrix, 2);
+            Matrix[Row][1] = 0;
+        }
+        return count;
+    }
+    public static void IncrementCount(){
+        count++;
+    }
+    public static int GetCount(){
+        return count;
+    }
+    public static boolean QueensPlaceJudge(int n, int [][]Matrix, int Column){
+        //PrintMatrix(n, Matrix);
+        if(Column == n + 1) {
+            IncrementCount();
+            //System.out.println(GetCount() + " true");
+            return true;
+        }
+        else {
+            for (int Row = 1; Row <= n; Row++) {
+                if (JudgeIfCanPlace(n, Matrix, Column, Row) == false){
+//                    System.out.printf("Row: %d, Column: %d false\n", Row, Column);
+//                    PrintMatrix(n, Matrix);
+                }
+                else {
+                    Matrix[Row][Column] = 1;
+//                    System.out.printf("Row: %d, Column: %d true\n", Row, Column);
+//                    PrintMatrix(n, Matrix);
+                    QueensPlaceJudge(n, Matrix, Column + 1);
+                    Matrix[Row][Column] = 0;
+                }
+            }
+        }
+        return false;
+    }
+    public static boolean JudgeIfCanPlace(int n, int [][] Matrix, int col, int row){
+        int i, j;
+ 
+        // Check this row on left side
+        for (i = 1; i <= col; i++)
+            if (Matrix[row][i] == 1)
+                return false;
+ 
+        // Check upper diagonal on left side
+        for (i = row, j = col; i >= 1 && j >= 1; i--, j--)
+            if (Matrix[i][j] == 1)
+                return false;
+ 
+        // Check lower diagonal on left side
+        for (i = row, j = col; j >= 1 && i <= n; i++, j--)
+            if (Matrix[i][j] == 1)
+                return false;
+ 
+        return true;
+    }
+}

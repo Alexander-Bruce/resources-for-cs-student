@@ -1,0 +1,56 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+// 动态规划函数，用于计算背包问题的最大价值
+void FindMaxValue(vector<vector<int>>& dp, const vector<int>& value, const vector<int>& weight, int load, int number) {
+    // 遍历每个物品
+   for(int n = 1; n <= number; n++) {
+    // 遍历所有可能的重量。这个循环负责计算给定当前物品和背包容量的所有可能情况。
+    for(int currw = 1; currw <= load; currw++) {
+        int maxValue = 0; // 初始化当前重量的最大价值为0。
+
+        // 尝试取0件到最大可能数量的当前物品。
+        // 此循环尝试每种可能的数量，确定当前物品放入几件最优。
+        for(int max = 0; max * weight[n] <= currw; max++) {
+            // 计算如果放入max件当前物品时的总价值。
+            // dp[n - 1][currw - max * weight[n]] 是不包含当前物品时，剩余容量的最大价值。
+            // max * value[n] 是当前物品放入max件可以得到的价值。
+            // 我们通过max函数选择不放当前物品和放入不同件数当前物品的最大价值。
+            int possibleValue = dp[n - 1][currw - max * weight[n]] + max * value[n];
+            maxValue = max(maxValue, possibleValue);
+        }
+
+        // 将计算得到的最大价值存储在动态规划表中。
+        // dp[n][currw] 存储的是考虑前n个物品，当前总重量为currw时的最大价值。
+        dp[n][currw] = maxValue;
+    }
+}
+
+}
+
+int main() {
+    int times;
+    cin >> times; // 读取测试案例的数量
+    while(times--) {
+        int number, load;
+        cin >> number >> load;
+        vector<int> valueList(number + 1), weightList(number + 1);
+        vector<vector<int>> dp(number + 1, vector<int>(load + 1, 0));
+
+        // 读取每个物品的价值和重量
+        for (int j = 1; j <= number; j++) {
+            cin >> valueList[j];
+        }
+        for (int j = 1; j <= number; j++) {
+            cin >> weightList[j];
+        }
+
+        // 调用动态规划函数来解决背包问题
+        FindMaxValue(dp, valueList, weightList, load, number);
+
+        // 输出可以获得的最大价值
+        cout << dp[number][load] << endl;
+    }
+    return 0;
+}

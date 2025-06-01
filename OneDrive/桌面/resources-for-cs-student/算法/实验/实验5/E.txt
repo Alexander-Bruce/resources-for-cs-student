@@ -1,0 +1,70 @@
+//最小生成树,无向图进行操作
+#include <bits/stdc++.h>
+using namespace std;
+
+const int INF = numeric_limits<int>::max(); // 定义一个表示无穷大的常数
+
+// Prim算法实现函数，返回最小生成树的总权重
+int prim(vector<vector<pair<int, int>>>& graph, int n) {
+    vector<bool> visited(n + 1, false); // 记录每个节点是否被访问过
+    vector<int> min_cost(n + 1, INF); // 记录连接到每个节点的最小边的权重
+
+    min_cost[1] = 0; // 从节点1开始构造MST
+    int total_cost = 0; // 初始化总成本为0
+
+    // 优先队列，用于按照边的权重从小到大排序
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({0, 1}); // 从节点1开始
+
+    while (!pq.empty()) {
+        int u = pq.top().second; // 当前节点
+        int cost = pq.top().first; // 连接到当前节点的边的权重
+        pq.pop();
+
+        if (visited[u]) continue; // 如果当前节点已经访问过，跳过
+        visited[u] = true; // 标记当前节点为已访问
+        total_cost += cost; // 将边的权重加到总成本中
+
+        // 遍历当前节点的所有邻接边
+        for (const auto& edge : graph[u]) {
+            int v = edge.first; // 邻接节点
+            int weight = edge.second; // 边的权重
+
+            // 如果邻接节点未访问，并且这条边的权重小于之前记录的最小权重
+            if (!visited[v] && weight < min_cost[v]) {
+                min_cost[v] = weight; // 更新最小权重
+                pq.push({weight, v}); // 将这条边加入优先队列
+            }
+        }
+    }
+
+    // 检查是否所有节点都被访问过，即是否所有节点都被包含在MST中
+    for (int i = 1; i <= n; ++i) {
+        if (!visited[i]) {
+            return -1; // 如果有节点未被访问，返回-1表示无法连接所有节点
+        }
+    }
+
+    return total_cost; // 返回最小生成树的总权重
+}
+
+int main() {
+    int n, m; // n为节点数，m为边数
+    while (cin >> m >> n) {
+        vector<vector<pair<int, int>>> graph(n + 1); // 创建图的邻接表
+
+        // 读取所有边
+        for (int i = 0; i < m; ++i) {
+            int x, y, cost;
+            cin >> x >> y >> cost; // 读取每条边的两个节点和权重
+            graph[x].push_back({y, cost});
+            graph[y].push_back({x, cost}); // 因为是无向图，所以需要添加两次
+        }
+
+        // 调用prim算法计算最小生成树的总权重
+        int min_cost = prim(graph, n);
+        cout << min_cost << endl; // 输出最小生成树的权重
+    }
+
+    return 0;
+}

@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// 定义一个并查集类
+class DisjointSet {
+private:
+    vector<int> parent; // 父节点数组
+    vector<int> rank;   // 秩数组，用于优化合并操作
+
+public:
+    // 构造函数，初始化并查集
+    DisjointSet(int size) {
+        parent.resize(size);
+        rank.resize(size, 0);
+        for (int i = 0; i < size; i++) {
+            parent[i] = i; // 每个节点的初始父节点是它自己
+        }
+    }
+
+    // 查找函数，带路径压缩
+    int find(int x) {
+        if (parent[x] != x)
+            parent[x] = find(parent[x]); // 路径压缩，使后续的查找操作更快
+        return parent[x];
+    }
+
+    // 合并函数，使用按秩合并
+    void unionSets(int x, int y) {
+        int rootX = find(x);
+        int rootY = find(y);
+        if (rootX != rootY) { // 只有当两个元素的根节点不同，才需要合并
+            if (rank[rootX] > rank[rootY]) {
+                parent[rootY] = rootX; // 将秩较小的根节点合并到秩较大的根节点上
+            } else if (rank[rootX] < rank[rootY]) {
+                parent[rootX] = rootY;
+            } else {
+                parent[rootY] = rootX; // 如果秩相等，随便合并一个，并增加秩
+                rank[rootX]++;
+            }
+        }
+    }
+};
+
+int main() {
+    int T;
+    cin >> T; // 读取测试用例的数量
+    while (T--) {
+        int N, M;
+        cin >> N >> M; // 读取学生数量和电话号码对数量
+        DisjointSet ds(N); // 创建一个包含N个学生的并查集
+        for (int i = 0; i < M; i++) {
+            int Xi, Yi;
+            cin >> Xi >> Yi; // 读取每一对电话号码
+            Xi--; // 将1-based索引转换为0-based索引
+            Yi--;
+            ds.unionSets(Xi, Yi); // 合并Xi和Yi，表示他们可以互相通讯
+        }
+
+        vector<bool> isLeader(N, true); // 标记数组，记录每个节点是否是一个组的领导者
+        int count = 0; // 需要通知的最少学生数
+        for (int i = 0; i < N; i++) {
+            int leader = ds.find(i); // 找到i的根节点（领导者）
+            if (isLeader[leader]) { // 如果这个领导者还没有被计数过
+                count++; // 增加需要通知的学生数
+                isLeader[leader] = false; // 标记这个领导者已经被计数过
+            }
+        }
+
+        cout << count << endl; // 输出结果
+    }
+    return 0;
+}

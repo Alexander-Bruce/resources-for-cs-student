@@ -1,0 +1,69 @@
+	#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <cmath>
+#include <cfloat>
+ 
+using namespace std;
+ 
+class Point {
+public:
+    double x, y;
+    Point(double x, double y) : x(x), y(y) {}
+    static double calculateDistance(const Point& p1, const Point& p2) {
+        return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
+    }
+ 
+    static double BruteForce(const vector<Point>& coordinates, int startPoint, int endPoint) {
+        double minDistance = DBL_MAX;
+        for (int i = startPoint; i < endPoint; i++) {
+            for (int j = i + 1; j < endPoint; j++) {
+                double distance = calculateDistance(coordinates[i], coordinates[j]);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                }
+            }
+        }
+        return minDistance;
+    }
+ 
+    static double ClosestPair(const vector<Point>& coordinates, int startPoint, int endPoint) {
+        int mid = (startPoint + endPoint) / 2;
+        Point midPoint = coordinates[mid];
+        if (endPoint - startPoint <= 3) {
+            return BruteForce(coordinates, startPoint, endPoint);
+        }
+        double dl = ClosestPair(coordinates, startPoint, mid);
+        double dr = ClosestPair(coordinates, mid, endPoint);
+        double dlr = min(dl, dr);
+        vector<Point> PointList;
+        for (int i = startPoint; i < endPoint; i++) {
+            if (abs(coordinates[i].x - midPoint.x) < dlr)
+                PointList.push_back(coordinates[i]);
+        }
+        double dm = BruteForce(PointList, 0, PointList.size());
+        return min(dm, dlr);
+    }
+ 
+    static double FindMinDis(vector<Point>& coordinates) {
+        sort(coordinates.begin(), coordinates.end(), [](const Point& p1, const Point& p2) {
+            return p1.x < p2.x;
+            });
+        return ClosestPair(coordinates, 0, coordinates.size());
+    }
+       
+};
+ 
+int main() {
+    int numbers;
+    while (cin >> numbers) {
+        vector<Point> coordinates;
+        for (int j = 0; j < numbers; j++) {
+            double x, y;
+            cin >> x >> y;
+            coordinates.emplace_back(x, y);
+        }
+        cout << static_cast<int>(Point::FindMinDis(coordinates)) << endl;
+    }
+    return 0;
+}

@@ -1,0 +1,58 @@
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Scanner;
+import java.util.Queue;
+ 
+public class Main {
+    public static void main(String [] args){
+        Scanner In = new Scanner(System.in);
+        while(In.hasNext()) {
+            int teams = In.nextInt(); int games = In.nextInt();
+            In.nextLine();
+            LinkedList<Integer>[] Team = new LinkedList[teams + 1];
+            LinkedList<Integer>[] AluTeam = new LinkedList[teams + 1];
+            boolean[] visited = new boolean[teams + 1];
+            //Queue<Integer> SortList = new LinkedList<>();
+            ArrayList<Integer> SortList = new ArrayList<>();
+            for (int i = 0; i <= teams; i++) {
+                Team[i] = new LinkedList<>();
+                AluTeam[i] = new LinkedList<>();
+                visited[i] = false;
+            }
+            for (int i = 0; i < games; i++) {
+                int team1 = In.nextInt(); int team2 = In.nextInt();
+                In.nextLine();
+                Team[team2].add(team1);
+                AluTeam[team1].add(team2);
+            }
+            for (int j = 0; j < teams; j++) {
+                for (int i = 1; i <= teams; i++) {
+                    if (!visited[i] && Team[i].size() == 0) {
+                        TopologicalSorting(Team, visited, SortList, i, teams);
+                        break;
+                    }
+                }
+            }
+            for(int i = 0; i < SortList.size(); i++){
+                if(i != SortList.size() - 1)
+                    System.out.print(SortList.get(i) + " ");
+                if(i == SortList.size() - 1)
+                    System.out.println(SortList.get(i));
+            }
+        }
+        In.close();
+    }
+    public static void TopologicalSorting(LinkedList<Integer>[] Team, boolean[] visited, ArrayList<Integer> SortList,int ThisTeam, int teams){
+        visited[ThisTeam] = true;
+        SortList.add(ThisTeam);
+        for(int i = 1 ; i <= teams; i++){
+            for(int j = 0 ;j < Team[i].size(); j++){
+                if(Team[i].get(j) == ThisTeam){
+                    Team[i].remove(j);
+                    break;
+                }
+            }
+        }
+    }
+}

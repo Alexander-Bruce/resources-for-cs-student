@@ -1,0 +1,59 @@
+<RCC>
+    <qresource prefix="/">
+        <file>resource/images/again.png</file>
+        <file>resource/images/background.png</file>
+        <file>resource/images/bomb.png</file>
+        <file>resource/images/bomb_supply.png</file>
+        <file>resource/images/bullet_supply.png</file>
+        <file>resource/images/bullet1.png</file>
+        <file>resource/images/bullet2.png</file>
+        <file>resource/images/enemy1.png</file>
+        <file>resource/images/enemy1_down1.png</file>
+        <file>resource/images/enemy1_down2.png</file>
+        <file>resource/images/enemy1_down3.png</file>
+        <file>resource/images/enemy1_down4.png</file>
+        <file>resource/images/enemy2.png</file>
+        <file>resource/images/enemy2_down1.png</file>
+        <file>resource/images/enemy2_down2.png</file>
+        <file>resource/images/enemy2_down3.png</file>
+        <file>resource/images/enemy2_down4.png</file>
+        <file>resource/images/enemy2_hit.png</file>
+        <file>resource/images/enemy3_down1.png</file>
+        <file>resource/images/enemy3_down2.png</file>
+        <file>resource/images/enemy3_down3.png</file>
+        <file>resource/images/enemy3_down4.png</file>
+        <file>resource/images/enemy3_down5.png</file>
+        <file>resource/images/enemy3_down6.png</file>
+        <file>resource/images/enemy3_hit.png</file>
+        <file>resource/images/enemy3_n1.png</file>
+        <file>resource/images/enemy3_n2.png</file>
+        <file>resource/images/gameover.png</file>
+        <file>resource/images/life.png</file>
+        <file>resource/images/me_destroy_1.png</file>
+        <file>resource/images/me_destroy_2.png</file>
+        <file>resource/images/me_destroy_3.png</file>
+        <file>resource/images/me_destroy_4.png</file>
+        <file>resource/images/me1.png</file>
+        <file>resource/images/me2.png</file>
+        <file>resource/images/pause_nor.png</file>
+        <file>resource/images/pause_pressed.png</file>
+        <file>resource/images/resume_nor.png</file>
+        <file>resource/images/resume_pressed.png</file>
+        <file>resource/sound/bullet.wav</file>
+        <file>resource/sound/button.wav</file>
+        <file>resource/sound/enemy1_down.wav</file>
+        <file>resource/sound/enemy2_down.wav</file>
+        <file>resource/sound/enemy3_down.wav</file>
+        <file>resource/sound/enemy3_flying.wav</file>
+        <file>resource/sound/game_music.ogg</file>
+        <file>resource/sound/get_bomb.wav</file>
+        <file>resource/sound/get_bullet.wav</file>
+        <file>resource/sound/me_down.wav</file>
+        <file>resource/sound/supply.wav</file>
+        <file>resource/sound/upgrade.wav</file>
+        <file>resource/sound/use_bomb.wav</file>
+        <file>resource/sound/I'll Be There - Walk off the Earth.wav</file>
+        <file>resource/sound/I'll Be There - Walk off the Earth.mp3</file>
+        <file>data.txt</file>
+    </qresource>
+</RCC>

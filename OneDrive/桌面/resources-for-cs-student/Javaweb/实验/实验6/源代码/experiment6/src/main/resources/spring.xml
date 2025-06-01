@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="Book1" class="backend.entity.Book">-->
+<!--        <constructor-arg value="Spring入门"/>-->
+<!--        <constructor-arg value="张三"/>-->
+<!--        <constructor-arg value="编程"/>-->
+<!--    </bean>-->
+
+    <bean id="Book2" class="backend.entity.Book">
+        <property name="bname" value="数据结构"/>
+        <property name="bauthor" value="李四"/>
+        <property name="bcategory" value="计算机"/>
+    </bean>
+
+<!--    <bean id="Member1" class="backend.entity.Member" autowire="byType">-->
+<!--        <property name="mname" value="王五"/>-->
+<!--        <property name="mlevel" value="VIP 会员"/>-->
+<!--    </bean>-->
+
+    <bean id="Member2" class="backend.entity.Member" autowire="byType">
+        <property name="mname" value="赵六"/>
+        <property name="mlevel" value="普通会员"/>
+    </bean>
+
+</beans>

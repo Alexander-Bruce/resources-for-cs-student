@@ -1,0 +1,71 @@
+	#include <iostream>
+#include <cstdio>
+#include <string>
+using namespace std;
+void MingSay(long long int* MingSayNumber, long long int *NumberArray)
+{
+	int count = 0;
+	for (int i = 1; i <= 100000; i++)
+	{
+		if (NumberArray[i] == 0) count++;
+		MingSayNumber[i] = count + i;
+		cout << MingSayNumber[i] << " " << i << endl;
+	}
+}
+bool JudgeIndexSeven(long long int Number)
+{
+	string NumberString = to_string(Number);
+	for (int j = 0; j < NumberString.length(); j++) {
+		if (NumberString[j] == '7') 
+			return true;
+	}
+	if (Number % 7 == 0) return true;//pass
+	return false;//no pass
+}
+void JudgeArray(long long int *MingSayNumber)
+{
+	long long int SayNumber = 0;
+	for (long long int i = 2; i <= 100000; i++) {
+		int temp = MingSayNumber[i-1];
+		int offset = 1;
+		if (JudgeIndexSeven(temp) != true && JudgeIndexSeven(temp + 1) != true)
+			offset = 1;
+		else if (JudgeIndexSeven(temp) == true && JudgeIndexSeven(temp + 1) != true)
+			offset = 2;
+		else if (JudgeIndexSeven(temp) == true && JudgeIndexSeven(temp + 1) == true)
+		{
+			while (JudgeIndexSeven(temp+1) == true)
+			{
+				offset++;
+				temp++;
+			}
+		}
+		else if (JudgeIndexSeven(temp) != true && JudgeIndexSeven(temp + 1) == true)
+		{
+			while (JudgeIndexSeven(temp + 1) == true)
+			{
+				offset++;
+				temp++;
+			}
+		}
+		MingSayNumber[i] = MingSayNumber[i-1] + offset;
+		//cout << MingSayNumber[i] << " " << i << endl;
+	}
+}
+//1 2 3 4 5 6 7 8 9  10 11 12 13 14 15 16 17 18 19 20
+//1 2 3 4 5 6 8 9 10 11 12 13 15 16 18 19 20 22 23 24
+int main() {
+    long long int times;
+    cin >> times;
+	long long int *MingSayNumber = new long long int[100001];
+	long long int* NumberArray = new long long int[100001];
+	MingSayNumber[1] = 1;
+	JudgeArray(MingSayNumber);
+    for (long long int i = 0; i < times; i++) {
+		long long int MingPosition;
+		scanf("%lld", &MingPosition);
+		printf("%lld\n", MingSayNumber[MingPosition]);
+	}
+ 
+    return 0;
+}

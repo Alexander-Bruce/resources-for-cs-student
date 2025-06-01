@@ -1,0 +1,48 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+// 使用静态数组大小为 Fibonacci 序列的存储空间。
+const int MAX_SIZE = 1000001;
+const long long MOD = 1000000007; // 用于取模的常数，防止溢出。
+vector<long long> value(MAX_SIZE, 0); // 用于存储 Fibonacci 数的数组。
+
+// 使用记忆化递归方式计算 Fibonacci 数。
+long long Fibonacci(int n) {
+    // 基本情况，直接返回 n 为 0、1、2 的 Fibonacci 数。
+    if(n == 0) return 0;
+    if(n == 1 || n == 2) return value[n] = 1;
+
+    // 如果已经计算过此值，则直接返回已存储的结果，避免重复计算。
+    if(value[n] != 0) return value[n];
+
+    // 递归计算 Fibonacci 序列，并存储结果。
+    value[n] = (Fibonacci(n - 1) + Fibonacci(n - 2)) % MOD;
+    return value[n];
+}
+
+int main() {
+    int times, number;
+    cin >> times;
+
+    // 预先计算所有 Fibonacci 数直到 MAX_SIZE-1
+    value[1] = 1;
+    value[2] = 1;
+    for(int i = 3; i < MAX_SIZE; i++) {
+        Fibonacci(i);
+    }
+
+    // 处理每个查询，获取 Fibonacci 数并输出结果。
+    for(int i = 0; i < times; i++) {
+        cin >> number;
+
+        // 输出 Fibonacci 数对 10^9 + 7 取模的结果，注意最后一个输出不换行。
+        if(i != times - 1)
+            cout << value[number] % MOD << endl;
+        else
+            cout << value[number] % MOD;
+    }
+
+    return 0;
+}

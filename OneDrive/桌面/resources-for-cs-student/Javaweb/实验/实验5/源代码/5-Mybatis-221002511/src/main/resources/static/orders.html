@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orders</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h2 class="mt-5 text-center">订单列表</h2>
+
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>欢迎, <span id="usernameDisplay"></span></h3> <!-- 显示用户名 -->
+        <a href="/static/product.html" class="btn btn-success float-end">下订单</a> <!-- 下订单按钮，跳转到/product -->
+    </div>
+
+    <table class="table table-striped mt-4">
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Order Time</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody id="orderTableBody">
+        </tbody>
+    </table>
+</div>
+
+<script>
+    var username = localStorage.getItem("username");
+
+    if (username) {
+        document.getElementById('usernameDisplay').textContent = username;
+
+        fetch('/orders?username=' + encodeURIComponent(username), {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data && data.length > 0) {
+                    const orderTableBody = document.getElementById('orderTableBody');
+                    orderTableBody.innerHTML = ''; // 清空表格
+
+                    data.forEach(order => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                        <td>${order.orderId}</td>
+                        <td>${order.productId}</td>
+                        <td>${order.productName}</td>
+                        <td>${order.price}</td>
+                        <td>${order.time}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="deleteOrder('${username}', ${order.orderId})">删除</button>
+                        </td>
+                    `;
+                        orderTableBody.appendChild(row);
+                    });
+                } else {
+                    alert("没有找到订单。");
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching orders:', error);
+                alert("获取订单失败，请重试。");
+            });
+    } else {
+        alert('未找到用户名，您可能需要重新登录。');
+        window.location.href = '/login';
+    }
+
+    function deleteOrder(username, orderId) {
+        fetch('/order', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username: username, orderId: orderId })
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('订单删除成功');
+                    // 重新加载订单列表
+                    window.location.reload();
+                } else {
+                    alert('删除订单失败');
+                }
+            })
+            .catch(error => {
+                console.error('Error deleting order:', error);
+                alert('删除订单失败，请重试。');
+            });
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

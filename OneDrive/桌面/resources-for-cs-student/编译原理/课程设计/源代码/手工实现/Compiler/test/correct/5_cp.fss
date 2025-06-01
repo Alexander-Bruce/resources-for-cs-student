@@ -1,0 +1,17 @@
+# --- CP 测试 ---
+# 复制文件到新文件
+CP dir1/file1.txt dir1/file1_copy.txt  # 复制文件
+READ dir1/file1_copy.txt  # 读取复制后的文件
+
+# 复制文件到目录
+CP "dir1/file with spaces.txt" dir2/  # 复制带空格文件到目录
+LS -l dir2  # 查看目录内容
+
+# 复制多个文件到目录
+MKDIR dir3  # 创建多文件复制目标目录
+CP dir1/file1.txt "dir1/file with spaces.txt" dir3/  # 复制多个文件
+LS -l dir3  # 查看目标目录
+
+# 复制目录(需要-r选项)
+CP -rv dir1 dir4  # 递归复制目录，使用-v显示详细信息
+LS dir4  # 列出复制后的目录

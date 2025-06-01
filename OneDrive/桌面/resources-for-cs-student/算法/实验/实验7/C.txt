@@ -1,0 +1,103 @@
+//Trie tree
+#include <iostream>
+#include <vector>
+#include <string>
+#include <memory>
+using namespace std;
+
+#define ALPHABET_SIZE 26  // 定义字母表的大小，因为这里只考虑小写英文字母
+
+class TrieNode {
+public:
+    TrieNode* children[ALPHABET_SIZE];  // 子节点数组
+    bool isEndOfWord;  // 标记这个节点是否是某个单词的结束
+
+    TrieNode() {
+        isEndOfWord = false;
+        for (int i = 0; i < ALPHABET_SIZE; i++) {
+            children[i] = nullptr;
+        }
+    }
+};
+
+class Trie {
+private:
+    TrieNode* root;  // Trie树的根节点
+
+public:
+    Trie() {
+        root = new TrieNode();  // 初始化时创建根节点
+    }
+
+    // 插入单词的函数
+    void insert(const string& word) {
+        TrieNode* node = root;
+        for (char ch : word) {
+            int index = ch - 'a';  // 计算字符对应的索引
+            if (!node->children[index]) {  // 如果对应的子节点不存在，就创建一个新的子节点
+                node->children[index] = new TrieNode();
+            }
+            node = node->children[index];  // 移动到下一个子节点
+        }
+        node->isEndOfWord = true;  // 标记单词结束的节点
+    }
+
+    // 查询前缀的函数
+    bool searchPrefix(const string& prefix) {
+        TrieNode* node = root;
+        for (char ch : prefix) {
+            int index = ch - 'a';
+            if (!node->children[index]) {  // 如果子节点不存在，说明没有这个前缀
+                return false;
+            }
+            node = node->children[index];
+        }
+        return true;  // 找到了对应的前缀，找前缀
+	//return node->isEndOfWord;  // 检查最后一个字符节点是否标记为单词结尾,找单词
+    }
+
+    // 析构函数，负责释放Trie树占用的内存
+    ~Trie() {
+        freeTrie(root);
+    }
+
+private:
+    // 递归释放内存的辅助函数
+    void freeTrie(TrieNode* node) {
+        if (!node) return;
+        for (int i = 0; i < ALPHABET_SIZE; i++) {
+            if (node->children[i]) {
+                freeTrie(node->children[i]);
+            }
+        }
+        delete node;  // 释放当前节点
+    }
+};
+
+int main() {
+    Trie trie;
+    string line;
+    vector<string> words;
+    vector<string> queries;
+
+    // 从标准输入读取单词，直到遇到空行
+    while (getline(cin, line) && !line.empty()) {
+        trie.insert(line);
+    }
+    // 从标准输入读取查询，直到遇到空行
+    while (getline(cin, line) && !line.empty()) {
+        queries.push_back(line);
+    }
+
+    // 对每个查询检查是否存在对应的前缀
+    for (const string& query : queries) {
+        if (trie.searchPrefix(query)) {
+            cout << "YES" << endl;
+        }
+        else {
+            cout << "NO" << endl;
+        }
+    }
+
+    return 0;
+}

@@ -1,0 +1,6 @@
+# --- EXIT 测试 ---
+EXIT  # 退出
+
+# EXIT之后的命令不应被执行
+PWD
+MKDIR this_should_not_be_created

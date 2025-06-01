@@ -1,0 +1,4 @@
+# --- MKDIR 测试 ---
+MKDIR dir1  # 创建目录1
+MKDIR dir2  # 创建目录2
+MKDIR -p nested/deeply/dir3  # 递归创建嵌套目录

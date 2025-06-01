@@ -1,0 +1,55 @@
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <string>
+#include <cstring>
+#include <cmath>
+using namespace std;
+#define N 1000001
+vector<long long int> inputList(N);
+ 
+string CheckIfStrictly(long long int judgeIndex, long long int times, long long int startIndex) {
+ 
+	long long int axis = inputList[startIndex] - judgeIndex;
+	
+	for (long long int i = 1; i < times; i++) {
+		long long int nextAxis = max(axis + 1, inputList[i] - judgeIndex);
+		if(nextAxis > inputList[i] + judgeIndex)
+			return "false";
+		axis = nextAxis;
+	}
+	return "true";
+}
+ 
+ 
+vector<long long int> FindMinNumber(int length) {
+	long long int right = N, left = 0;
+	vector<long long int> result(1);
+	result[0] = right;
+	while (left <= right) {
+		long long int mid = (left + right) / 2;
+		if (CheckIfStrictly(mid, length, 0) == "true") {
+			long long int resultNumber = result[0];
+			result[0] = min(resultNumber, mid);
+			right = mid - 1;
+		}
+		else {
+			left = mid + 1;
+		}
+	}
+	return result;
+}
+ 
+ 
+int main() {
+	long long int times;
+	while (cin >> times) {
+		for (int i = 0; i != times; i++) {
+			long long int number;
+			cin >> number;
+			inputList[i] = number;
+		}
+		vector<long long int> result = FindMinNumber(times);
+		cout << result.back() << endl;
+	}
+}

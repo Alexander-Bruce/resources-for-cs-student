@@ -1,0 +1,78 @@
+	import java.util.Scanner;
+ 
+public class Main {
+    private static int count = 0;
+    public static void Increment(){
+        count++;
+    }
+    public static int GetCount(){
+        return count;
+    }
+    public static void initialCount()
+    {
+        count = 0;
+    }
+    public static void main(String [] args)
+    {
+        Scanner In = new Scanner(System.in);
+        char [][] Matrix = new char[101][101];
+        String Rows;
+        for(char [] row : Matrix)
+            for(char element : row)
+                element = 0;
+        while(In.hasNext())
+        {
+            initialCount();
+            int col = In.nextInt();
+            int row = In.nextInt();
+            int CoreX = 0, CoreY = 0;
+            In.nextLine();
+            for(int i = 1; i <= row; i++) {
+                Rows = In.nextLine();
+                for (int j = 1; j <= col; j++) {
+                    Matrix[i][j] = Rows.charAt(j - 1);
+                    if(Matrix[i][j] == 'G') {
+                        CoreX = i;
+                        CoreY = j;
+                    }
+                }
+            }
+            DFS(Matrix, col, row, CoreX, CoreY);
+            System.out.println(GetCount() + 1 + "");
+        }
+    }
+    public static void DFS(char [][] Matrix, int col, int row, int CoreX, int CoreY)
+    {
+       if(CoreX - 1 >= 1 && Matrix[CoreX - 1][CoreY] == 'D')
+       {
+           Increment();
+           Matrix[CoreX - 1][CoreY] = 'X';
+           DFS(Matrix, col, row, CoreX - 1, CoreY);
+       }
+       if(CoreX + 1 <= row && Matrix[CoreX + 1][CoreY] == 'D')
+       {
+           Increment();
+           Matrix[CoreX + 1][CoreY] = 'X';
+           DFS(Matrix, col, row, CoreX + 1, CoreY);
+       }
+         if(CoreY - 1 >= 1 && Matrix[CoreX][CoreY - 1] == 'D')
+         {
+             Increment();
+              Matrix[CoreX][CoreY - 1] = 'X';
+              DFS(Matrix, col, row, CoreX, CoreY - 1);
+         }
+        if(CoreY + 1 <= col && Matrix[CoreX][CoreY + 1] == 'D')
+        {
+            Increment();
+            Matrix[CoreX][CoreY + 1] = 'X';
+            DFS(Matrix, col, row, CoreX, CoreY + 1);
+        }
+ 
+    }
+    public static void ClearMatrix(int [][] Matrix, int col, int row)
+    {
+        for(int i = 0; i < col; i++)
+            for(int j = 0; j < row; j++)
+                Matrix[i][j] = 0;
+    }
+}

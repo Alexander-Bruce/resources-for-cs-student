@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/register.css">
+    <script src="JS\gVerify.js"></script>
+</head>
+
+<body>
+    <div class="body">
+        <form action="register.php">
+            <div class="welcome">
+                <h1>欢迎注册</h1>
+            </div>
+            <div class="register">
+                <p style="font-size: 18px;">用户名:</p>
+                <div class="imgbox">
+                    <img src="images\新人.png" alt="">
+                </div>
+                <div class="txtbox">
+                    <input type="text" name="username" id="username">
+                </div>
+            </div>
+            <div class="welcome">
+            </div>
+            <div class="register">
+                <p style="font-size: 18px;">密码：</p>
+                <div class="imgbox">
+                    <img src="images\锁定.png" alt="">
+                </div>
+                <div class="txtbox">
+                    <input type="password" name="password" id="password">
+                </div>
+            </div>
+            <div class="register">
+                <p style="font-size: 18px;">确认密码：</p>
+                <div class="imgbox">
+                    <img src="images\保护.png" alt="">
+                </div>
+                <div class="txtbox">
+                    <input type="password" name="password2" id="password2">
+                </div>
+            </div>
+
+            <div class="register">
+                <p style="font-size: 18px;">验证码：</p>
+                <div class="imgbox">
+                    <img src="images\消息通知.png" alt="">
+                </div>
+                <div class="txtbox1">
+                    <div id="verifyCodeDemo">
+                        <input type="text" id="code_input" placeholder="在这个框里输入验证码">
+                        <p id="picyzm"></p>
+                    </div>
+                </div>
+            </div>
+            </br>
+
+            <div class="register">
+                <div class="flex-container">
+                    <div class="flex-item">
+                        <input type="button" value="注册" onclick="check();" id="btn">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <script type="text/javascript">
+            var verifyCode = new GVerify({
+                id: "picyzm",
+                type: "blend"
+            });
+        </script>
+
+        <div class="contain">
+            <div class="head">
+
+                <div class="headbrother">
+                    <div id="imagebox">
+                        <img src="images\logo门.png" alt="">
+                    </div>
+                    <img src="images\logo文字改背景2.png" alt="">
+                    <strong style="font-size: 25px;">中国古典园林简介</strong>
+                </div>
+            </div>
+            <div id="flex-box">
+                <div class="flex-box-item">
+                    &nbsp;&nbsp;
+                    <h1 style="display: inline;">中</h1>
+                    <p style="display: inline; font-size: large;">
+                        国古典园林艺术是指以江南私家园林和北方皇家园林为代表的中国山水园林形式。在中国传统建筑中，古典园林是独树一帜有重大成就的建筑。它被举世公认为世界园林之母，世界艺术之奇观，人类文明的重要遗产。其造园手法已被西方国家所推崇和摹仿，在西方国家掀起了一股“中国园林热”。
+                    </p>
+                    <br>
+                    &nbsp;&nbsp; &nbsp;&nbsp;
+                    <p style="display: inline; font-size: large;">
+                        中国的造园艺术，以追求自然精神境界为最终和最高目的，从而达到“虽由人作，宛自天开”的审美旨趣。它深浸着中华文化的内蕴，是中国五千年文化史造就的艺术珍品，是一个民族内在精神品格的生动写照，是我们今天需要继承与发展的瑰丽事业。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script type="text/javascript" src="JS\register.js"> </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+	#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <climits>
+ 
+using namespace std;
+ 
+long long int LastCity(vector<long long int >& numbers, long long int targetCityDistance) {
+    long long int left = 0, right = numbers.size() - 1, index = 0;
+    while (left <= right) {
+        long long int mid = (left + right) / 2;
+        if (numbers[mid] <= targetCityDistance) {
+            index = max(index, mid);
+            left = mid + 1;
+        }
+        else {
+            right = mid - 1;
+        }
+    }
+    return index;
+}
+ 
+bool CheckSpeed(vector<long long int>& numbers, long long int day, long long int milesPerDay) {
+    long long int currCityDistance = 0;
+    for (long long int i = 0; i < day; i++) {
+        long long int distance = currCityDistance + milesPerDay;
+        if (distance >= numbers[numbers.size() - 1]) return true;
+        long long int index = LastCity(numbers, distance);
+        currCityDistance = numbers[index];
+    }
+    return false;
+}
+ 
+long long int minWalkingSpeed(vector<long long int>& numbers, long long int k) {
+    long long int left = 0, right = LONG_MIN, result = numbers[numbers.size() - 1];
+    for (long long int distance : numbers)
+        right = max(right, distance);
+    while (left <= right) {
+        long long int mid = (left + right) / 2;
+        bool judge = CheckSpeed(numbers, k, mid);
+        if (judge) {
+            result = min(mid, result);
+            right = mid - 1;
+        }
+        else {
+            left = mid + 1;
+        }
+    }
+    return result;
+}
+ 
+int main() {
+    long n, k;
+    while (cin >> n >> k) {
+        vector<long long int> numbers(n);
+        for (long long int i = 0; i < n; i++) {
+            cin >> numbers[i];
+        }
+        cout << minWalkingSpeed(numbers, k) << endl;
+    }
+    return 0;
+}

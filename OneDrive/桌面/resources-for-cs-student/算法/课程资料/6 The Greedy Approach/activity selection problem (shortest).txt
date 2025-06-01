@@ -1,0 +1,62 @@
+#include<cstdio>
+#include<algorithm>
+using namespace std;
+
+struct Contest{
+	int begin;
+	int end;
+	int seconds;
+};
+
+Contest contests[1000];
+Contest results[1000];
+
+bool compare(Contest a, Contest b){
+	return a.seconds < b.seconds;
+}
+
+int main() {
+
+	int N;
+	while (scanf("%d", &N) != EOF){
+		for (int i = 0; i < N; i++){
+			scanf("%d%d", &contests[i].begin, &contests[i].end);
+			contests[i].seconds = contests[i].end - contests[i].begin;
+		}
+		sort(contests, contests + N, compare);
+		int number = 1;
+		results[0] = contests[0];
+		for (int i = 1; i < N; i++){
+			bool flag = true;
+			for (int j = 0; j < number; j++)
+				if ((contests[i].begin >= results[j].begin && contests[i].begin < results[j].end) || (contests[i].end > results[j].begin && contests[i].end <= results[j].end))
+					flag = false;
+			if (flag)
+				results[number++] = contests[i];
+		}
+		printf("%d\n", number);
+	}
+
+
+	return 0;
+}
+
+A counter-example:
+1 4     3
+3 5     2
+0 6     6
+5 7     2
+3 8     5
+5 9     4
+6 10    4
+7 11    4
+8 12    4
+10 13   3 
+2 13    11
+12 18   6
+
+a fake solution:
+£¨3,5£©£¨5,7£©£¨10,13£©
+
+an optimal solution:
+£¨1,4£©£¨5,7£©£¨7,11£©£¨12,18£©

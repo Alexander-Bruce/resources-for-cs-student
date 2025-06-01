@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+int N, A, B;
+int number[202], vis[202];
+struct pos{
+	int floor;
+	int steps;
+};
+
+void bfs(){
+	pos cur, next;
+	cur.floor = A;
+	cur.steps = 0;
+	queue<pos> q;
+	q.push(cur);
+	vis[A] = 1;
+	while(!q.empty()){
+		cur = q.front();
+		q.pop();
+		if(cur.floor == B){
+			printf("%d", cur.steps);
+			return;
+		}
+		
+		next.floor = cur.floor + number[cur.floor];
+		next.steps = cur.steps + 1;
+		if(next.floor <= N){
+			if(vis[next.floor] == 0){
+				vis[next.floor] == 1;
+				q.push(next);
+			}
+		}
+		
+		next.floor = cur.floor - number[cur.floor];
+		next.steps = cur.steps + 1;
+		if(next.floor >= 1){
+			if(vis[next.floor] == 0){
+				vis[next.floor] == 1;
+				q.push(next);
+			}
+		}
+	}
+	printf("-1");
+	return;
+}
+
+int main(){
+	memset(vis,0,sizeof(vis));
+	scanf("%d%d%d",&N,&A,&B);
+	for(int i=1;i<=N;i++)
+		scanf("%d",&number[i]);
+	bfs();
+	return 0;
+}

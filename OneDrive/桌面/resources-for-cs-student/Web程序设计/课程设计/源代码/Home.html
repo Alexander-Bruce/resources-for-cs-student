@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中国园林世界</title>
+    <link rel="stylesheet" href="css\Home.css">
+    <link rel="stylesheet" href="css\style.css" />
+    <link rel="stylesheet" href="css\navbar.css" />
+    <link rel="stylesheet" href="css\search.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/224b934ae2.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+  </head>
+  <body>
+
+    <div id="search-container" style="display: none;">
+
+      <div id="sidebar-btn">
+          <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+          <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+          <span style="background-color: black;width: 45px;height: 4px;margin-top: 10px;"></span>
+      </div>
+
+      <div id="search-sidebar">
+               <ul>
+                    <li style="height: 50px;margin: 0;padding: 0;"></li>
+                    <li onclick="hiden();"><a href="Home.html">首页</a></li>
+                    <li onclick="hiden();"> <a href="gardenstyle.html">十大园林</a> </li>
+                    <li onclick="hiden();"><a href="question.html">互动答题</a></li>
+                    <li onclick="hiden();"><a href="photo.html">图片</a></li>
+                    <li onclick="hiden();"><a href="">结束搜索</a></li>
+               </ul>
+      </div>
+
+
+      <div class="search-box">
+          <input type="text" name="" placeholder="请输入内容" class="input_text">
+          <a class="search-btn" href="#">
+          <p>搜索</p>
+          </a>
+      </div>
+  </div>
+     
+
+
+
+
+
+
+    <div id="headline"> 
+      <h1>欢迎来到</h1>
+      <h1>中国园林世界</h1>
+    </div>
+
+
+
+    <div id="sidebar">
+      <div class="toggle-btn" onclick ="showslidebar()">
+      </div>
+      <ul>
+        <li></li>
+        <li onclick="showsearchbox();"><a href="#"> <i class="fa-solid fa-magnifying-glass" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">搜索</p></i></a></li>
+        <li onclick ="showlistword();"><a href="javascript:;"> <i class="fa-solid fa-compass" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">页面导航</p></i></a></li>
+        <li  class="list" style="display: none;" onclick="showlistword();"><a href="#sec-01" style="text-decoration: none;"><i class="fa-regular fa-circle-dot" style="margin-top: 10px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 20px;">中国古典园林概览</p></i></a></li>
+        <li  class="list" style="display: none;" onclick="showlistword();change1();"><a href="#sec-02" style="text-decoration: none;"><i class="fa-regular fa-circle-dot" style="margin-top: 10px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 20px;">历史发展</p></i></a></li>
+        <li  class="list" style="display: none;" onclick="showlistword();change2();"><a href="#sec-03" style="text-decoration: none;"><i class="fa-regular fa-circle-dot" style="margin-top: 10px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 20px;">个人观点</p></i></a></li>
+        <li  class="list" style="display: none;" onclick="showlistword();change3();"><a href="#sec-04" style="text-decoration: none;"><i class="fa-regular fa-circle-dot" style="margin-top: 10px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 20px;">知识链接</p></i></a></li>
+        <li><a href="index.html"> <i class="fa-solid fa-person" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">登录</p></i></a></li>
+        <li><a href="register.html"> <i class="fa-solid fa-user" style="margin-top: 30px; color: rgb(95, 110, 46);"><p style="margin-left: 40px;display: inline;font-size: 25px;">注册</p></i></a></li>
+      </ul>
+  </div>
+
+
+
+
+  <header>
+      <a href="#" class="logo"><img src="images\logo带字母.png" alt="" ></a>
+      <ul>
+      <li><a href="Home.html"><i class="fa-solid fa-house fa-beat">首页</i></a></li>
+      <li>  <a href="gardenstyle.html"><i class="fa-solid fa-globe">十大园林</i></a> </li>
+      <li><a href="question.html"><i class="fa-solid fa-file-contract">互动答题</i></a></li>
+      <li><a href="photo.html"><i class="fa-solid fa-photo-film">图片</i></a></li>
+      <li><a href="javascript:;"><i class="fa-solid fa-bars" onclick ="showslidebar()">导航</i></a></li>
+      </ul>   
+  </header>
+
+    <section class="sec-01" id="sec-01">
+      <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+        })
+    </script>
+        
+      <div class="container">
+        <h2 class="main-title">中国古典园林概览</h2>
+        <div class="content">
+          <div class="image">
+            <img src="images\皇家园林.jpg" alt="">
+          </div>
+          <div class="text-box">
+            <h3 >中国古典园林艺术</h3>
+            <p id="txt1" > &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;中国古典园林艺术是指以江南私家园林和北方皇家园林为代表的中国山水园林形式。在中国传统建筑中，古典园林是独树一帜有重大成就的建筑。它被举世公认为世界园林之母，世界艺术之奇观，人类文明的重要遗产。
+              中国的造园艺术，深浸着中华文化的内蕴，是中国五千年文化史造就的艺术珍品，是一个民族内在精神品格的生动写照，是我们今天需要继承与发展的瑰丽事业。</p>
+          </div>
+      </div>
+        <div class="media-icons">
+          <a href="https://www.google.com/search?q=%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E5%9B%AD%E6%9E%97&oq=%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E5%9B%AD%E6%9E%97&aqs=chrome..69i57j69i60.694j0j4&sourceid=chrome&ie=UTF-8" class="icon"><i class="fa-brands fa-google"></i></a>
+          <a href="https://www.douyin.com/" class="icon"><i class="fa-brands fa-tiktok"></i></a>
+          <a href="https://search.bilibili.com/all?vt=39340630&keyword=%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E5%9B%AD%E6%9E%97&from_source=webtop_search&spm_id_from=333.1007&search_source=5" class="icon"><i class="fa-brands fa-bilibili"></i></a>
+          <a href="https://www.youtube.com/watch?v=tDUOXprl_h0" class="icon"><i class="fa-brands fa-zhihu"></i></a>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="sec-02" id="sec-02">
+      <div class="container">
+        <h3 class="section-title" >中国古典园林发展史</h3>
+        <div class="content">
+          <div class="info">
+            <h4 class="info-title" id="txt2">先秦秦汉</h4>
+            <p class="info-txt" id="txt3"> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;此时期或可称为“自然时期”，是从“囿”到“苑”的发展时期,这种最早期的“囿”到汉代有了新的发展，它不仅
+              仅是一种自然山林的原始状态的存在，而是日趋专门化了。帝王们在这里建“宫”设“馆”，除了为游猎所需要，增添了寝宫殿宇生活设
+              施，还配置了观赏植物、人工山水等景色，初步具有了“园林”性质，从汉代起它的名称也从古代的“囿”改称“苑”或“苑圈”了。但这些园林，建筑和山
+              水的安排，也并不融洽有序，奇树异花的种植，只是猎奇罗列，虽然它有了某些园林的性质，开启了日后造园的新生面。总的说，仍是处于自然发展的时期。</p>
+          </div>
+          <div class="image" >
+            <img src="images\园林2.jpg" alt=" " id="img">
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+
+
+
+
+    <section class="sec-03" id="sec-03">
+      <div class="container">
+        <h3 class="section-title">个人观点</h3>
+        <div class="content">
+          <div class="image">
+            <img src="images\园林6.jpg" alt="">
+          </div>
+          <div class="info">
+            <h4 class="info-title" id="txt4">明清时期的中国园林，为何艺术水平如此发达?</h4>
+            <p id="txt5">  &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 我认为有两个重要的标志。第一，造园艺术理论有了划时代的总结性成果，即明代崇祯时江苏吴江人计成《园冶》一书的问世。第二，大批造园艺术家的诞生，这些园林史上的大家，形成了独特的园林美学观点，不仅在苏扬等南方园林中有他们的遗构，北京北海公园取，就有他们的遗作可供欣赏。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="sec-04" id="sec-04">
+      <div class="container">
+        <h3 class="section-title">园林知识链接</h3>
+        <div class="content">
+          <div class="media-info">
+            <li><a href="https://www.google.com/search?q=%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E5%9B%AD%E6%9E%97&oq=%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E5%9B%AD%E6%9E%97&aqs=chrome..69i57j69i60.694j0j4&sourceid=chrome&ie=UTF-8"><i class="fa-brands fa-google"></i> Google</a></li>
+            <li><a href="https://www.douyin.com/"><i class="fa-brands fa-tiktok">抖音</i></li>
+            <li><a href="https://search.bilibili.com/all?vt=39340630&keyword=%E4%B8%AD%E5%9B%BD%E4%BC%A0%E7%BB%9F%E5%9B%AD%E6%9E%97&from_source=webtop_search&spm_id_from=333.1007&search_source=5"><i class="fa-brands fa-bilibili "></i> 哔哩哔哩</a></li>
+            <li><a href="https://www.youtube.com/watch?v=tDUOXprl_h0"><i class="fa-brands fa-zhihu">知乎</i></li>
+          </div>
+          <div class="image">
+            <img src="images\颐和园2.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" src="JS\Home.js"> </script>
+  </body>
+</html>
+      

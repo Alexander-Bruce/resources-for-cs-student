@@ -1,0 +1,59 @@
+//Dijkstra
+#include <bits/stdc++.h>
+using namespace std;
+
+// 使用 Dijkstra 算法计算从起点 v1 到终点 v2 的最短路径
+void shortest_path(vector<vector<pair<int, int>>>& graph, int v1, int v2, int n) {
+    vector<int> distance(n + 1, numeric_limits<int>::max()); // 存储从起点到每个点的最短距离
+    distance[v1] = 0; // 起点到自己的距离为0
+
+    // 使用优先队列优化Dijkstra算法，保证每次都能得到最短的未访问节点
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+    pq.push({ 0, v1 }); // 将起点压入队列
+
+    // 主循环，持续直到优先队列为空
+    while (!pq.empty()) {
+        int u = pq.top().second; // 获取当前最短距离的节点
+        pq.pop(); // 弹出已经处理的节点
+
+        // 遍历所有与节点u相连的节点
+        for (const auto& edge : graph[u]) {
+            int v = edge.first; // 相邻节点
+            int weight = edge.second; // u到v的距离
+
+            // 如果找到到v的更短路径，则更新距离并将新的距离信息压入优先队列
+            if (distance[u] + weight < distance[v]) {
+                distance[v] = distance[u] + weight;
+                pq.push({ distance[v], v });
+            }
+        }
+    }
+
+    // 输出从v1到v2的最短距离，如果v2不可达，则输出-1
+    if (distance[v2] != numeric_limits<int>::max()) {
+        cout << distance[v2] << endl;
+    }
+    else {
+        cout << "-1" << endl;
+    }
+}
+
+int main() {
+    int n, m, v1, v2; // n为节点数，m为边数，v1为起点，v2为终点
+    while (cin >> n >> m >> v1 >> v2) {
+        vector<vector<pair<int, int>>> graph(n + 1); // 图的邻接表表示
+
+        // 读取图的边信息
+        for (int i = 0; i < m; ++i) {
+            int x, y, distance;
+            cin >> x >> y >> distance; // 读取每条边和它的权重
+            graph[x].push_back({ y, distance }); // 添加无向边
+            graph[y].push_back({ x, distance });
+        }
+
+        // 调用函数计算最短路径
+        shortest_path(graph, v1, v2, n);
+    }
+
+    return 0;
+}

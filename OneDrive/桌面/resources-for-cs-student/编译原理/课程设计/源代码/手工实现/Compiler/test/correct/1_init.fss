@@ -1,0 +1,4 @@
+# --- 初始化阶段 ---
+MKDIR test_environment  # 创建测试环境目录
+CD test_environment  # 进入测试环境
+PWD  # 显示当前工作目录

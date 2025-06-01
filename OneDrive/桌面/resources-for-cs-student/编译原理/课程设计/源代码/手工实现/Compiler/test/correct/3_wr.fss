@@ -1,0 +1,8 @@
+# --- WRITE 和 READ 测试 ---
+WRITE dir1/file1.txt "Hello from FSS!"  # 写入文件1
+WRITE "dir1/file with spaces.txt" "文件名包含空格的测试文件"  # 写入带空格文件名
+READ dir1/file1.txt  # 读取文件1
+READ "dir1/file with spaces.txt"  # 读取带空格文件名
+
+WRITE -a dir1/file1.txt "\n追加的第二行内容"  # 追加内容
+READ dir1/file1.txt   # 读取追加后的文件

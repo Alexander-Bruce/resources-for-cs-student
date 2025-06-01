@@ -1,0 +1,43 @@
+	#include <iostream>
+#include <cstdio>
+using namespace std;
+long long int Confine(int x, int y, long long int coordinates[500][500], long long int sumsX[500], long long int sumsY[500]) {
+    long long int max = 0;
+ 
+    for (int i = 0; i < x; i++) {
+        for (int j = 0; j < y; j++) {
+            long long int sum = sumsX[i] + sumsY[j] - coordinates[i][j];
+            if (sum > max) max = sum;
+        }
+    }
+ 
+    return max;
+}
+ 
+int main() {
+    int number;
+    scanf("%d", &number);
+ 
+    for (int m = 0; m < number; m++) {
+        int x, y;
+        scanf("%d %d", &x, &y);
+ 
+        long long int coordinates[500][500] = { 0 };
+        long long int sumsX[500] = { 0 };
+        long long int sumsY[500] = { 0 };
+ 
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                scanf("%d", &coordinates[i][j]);
+                sumsX[i] = sumsX[i] + coordinates[i][j];
+                sumsY[j] = sumsY[j] + coordinates[i][j];
+            }
+        }
+        if(m != number - 1)
+        printf("%lld\n", Confine(x, y, coordinates, sumsX, sumsY));
+        else
+        printf("%lld", Confine(x, y, coordinates, sumsX, sumsY));
+    }
+ 
+    return 0;
+}
