@@ -454,7 +454,7 @@ foreach ($Module in $Modules) {
     $Lines.Add('')
     $Lines.Add((Get-CourseOverview -ModuleName $ModuleName))
     $Lines.Add('')
-    $Lines.Add("当前模块包含 $($AllDirectories.Count) 个目录、$($AllFiles.Count) 个文件。建议先从下方模块导览进入对应部分，只有需要精确定位文件时再查看文末的详细文件索引。")
+    $Lines.Add("当前模块包含 $($AllDirectories.Count) 个目录、$($AllFiles.Count) 个文件。建议先看目录结构，再从下方模块导览进入对应部分。")
 
     $Lines.Add('')
     $Lines.Add('## 目录结构')
@@ -534,22 +534,8 @@ foreach ($Module in $Modules) {
         }
     }
 
-    $Lines.Add('')
-    $Lines.Add('## 详细文件索引')
-    $Lines.Add('')
-    $Lines.Add('需要精确定位某个文件时使用这一节；日常浏览建议优先从上面的模块导览进入。')
-    $Lines.Add('')
-    if ($AllFiles.Count -eq 0) {
-        $Lines.Add('暂无文件。')
-    } else {
-        $Lines.Add('| 路径 | 大小 |')
-        $Lines.Add('| --- | ---: |')
-        foreach ($File in $AllFiles) {
-            $RelativePath = Get-RelativePath $File.FullName
-            $LinkText = Escape-MarkdownCell $RelativePath
-            $UrlPath = Convert-ToUrlPath $RelativePath
-            $Lines.Add("| [$LinkText](../$UrlPath) | $(Format-FileSize $File.Length) |")
-        }
+    while ($Lines.Count -gt 0 -and $Lines[$Lines.Count - 1] -eq '') {
+        $Lines.RemoveAt($Lines.Count - 1)
     }
 
     Set-Content -LiteralPath $DocPath -Value $Lines -Encoding UTF8
@@ -596,9 +582,9 @@ foreach ($Module in $Modules) {
 $Readme.Add('')
 $Readme.Add('## 仓库结构')
 $Readme.Add('')
-$Readme.Add("当前仓库共整理 $($Modules.Count) 个顶层模块，约 $TotalDirectories 个目录、$TotalFiles 个文件。课程导览已按模块拆分到 ``docs/``，每份页面都会先用代码块目录树展示结构，再说明各部分内容、代表文件和精确到文件的明细索引。")
+$Readme.Add("当前仓库共整理 $($Modules.Count) 个顶层模块，约 $TotalDirectories 个目录、$TotalFiles 个文件。课程导览已按模块拆分到 ``docs/``，每份页面都会先用代码块目录树展示结构，再说明各部分内容、入口链接和代表文件。")
 $Readme.Add('')
-$Readme.Add('- `docs/`：按课程生成的导览页，包含带注释目录树、模块说明、入口链接和详细文件索引。')
+$Readme.Add('- `docs/`：按课程生成的导览页，包含带注释目录树、模块说明、入口链接和代表文件。')
 $Readme.Add('- `scripts/generate-docs.ps1`：重新扫描仓库并生成 README 与 docs 索引。')
 $Readme.Add('- `.gitignore`：统一忽略系统缓存、IDE 配置、编译产物和本地工具生成目录。')
 $Readme.Add('- `LICENSE`：MIT 许可证。')
