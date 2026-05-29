@@ -1,0 +1,21 @@
+﻿# C语言程序设计
+
+[返回总览](../README.md) | [打开目录](../C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/)
+
+## 概览
+
+- 目录数：2
+- 文件数：3
+- 一级结构：[课程设计](../C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/)
+
+## 目录结构
+
+- [C语言程序设计/课程设计](../C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/)（1 个子目录，3 个文件）
+
+## 文件索引
+
+| 路径 | 大小 |
+| --- | ---: |
+| [C语言程序设计/课程设计/源代码/校园出入管理系统代码.cpp](../C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/%E6%BA%90%E4%BB%A3%E7%A0%81/%E6%A0%A1%E5%9B%AD%E5%87%BA%E5%85%A5%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%A0%81.cpp) | 43.0 KB |
+| [C语言程序设计/课程设计/课设任务书.pdf](../C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/%E8%AF%BE%E8%AE%BE%E4%BB%BB%E5%8A%A1%E4%B9%A6.pdf) | 311.0 KB |
+| [C语言程序设计/课程设计/课设报告.docx](../C%E8%AF%AD%E8%A8%80%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/%E8%AF%BE%E7%A8%8B%E8%AE%BE%E8%AE%A1/%E8%AF%BE%E8%AE%BE%E6%8A%A5%E5%91%8A.docx) | 13.35 MB |

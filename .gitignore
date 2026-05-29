@@ -1,0 +1,62 @@
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor and IDE metadata
+.idea/
+.vscode/
+*.iml
+*.iws
+*.ipr
+*.user
+*.suo
+.qmake.stash
+.vs/
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+
+# Java and JVM build outputs
+target/
+build/
+out/
+bin/
+*.class
+
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+
+# Native build outputs and local binaries
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Node and frontend build outputs
+node_modules/
+dist/
+coverage/
+
+# Course-design scratch directories
+test-dir/
+test_dir1/
+
+# Local tool-generated metadata
+.github/java-upgrade/
